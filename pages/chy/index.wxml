@@ -1,0 +1,120 @@
+<view class="container">
+  <!-- 今日运势 -->
+  <view class="section today-for">
+    <view class="fortune">
+      <view class="f-data">
+        <text class="score-value">今日运势</text>
+        <text class="date">2024.10.26 周六</text>
+      </view>
+      <view class="score-bar flex">
+        <view class="score-circle">
+          <image class="circle-pic" src="/image/curline.png" />
+          <view class="score-num">78.4</view>
+          <view class="score-count">运势分</view>
+        </view>
+        <view class="score-cylinder flex">
+          <view class="score-list flex">
+            <view class="s-item">
+              <view class="cover green"></view>
+            </view>
+            <view class="s-num">93</view>
+            <view class="s-desc">健康</view>
+          </view>
+          <view class="score-list flex">
+            <view class="s-item">
+              <view class="cover yellow"></view>
+            </view>
+            <view class="s-num">73</view>
+            <view class="s-desc">财富</view>
+          </view>
+          <view class="score-list flex">
+            <view class="s-item">
+              <view class="cover red"></view>
+            </view>
+            <view class="s-num">83</view>
+            <view class="s-desc">爱情</view>
+          </view>
+          <view class="score-list flex">
+            <view class="s-item">
+              <view class="cover orange"></view>
+            </view>
+            <view class="s-num">83</view>
+            <view class="s-desc">事业</view>
+          </view>
+          <view class="score-list flex">
+            <view class="s-item">
+              <view class="cover blue"></view>
+            </view>
+            <view class="s-num">60</view>
+            <view class="s-desc">学习</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="msg-tips">
+      <view class="tips-title">—— 命运箴言 ——</view>
+      <view class="tips-content">
+        “人生似一场聊斋艳遇，走进去的时候看见周遭花开成海，灯下美人如玉，一觉醒来，发现所处的地方不过是山野孤坟……”
+      </view>
+      <view class="tips-author">——无名网友</view>
+      <view class="tips-btn">
+        <view class="mark">></view>
+        <view class="text">签到攒好运</view>
+        <view class="fortune-add">+5好运</view>
+      </view>
+      <view class="likes">
+        <van-icon name="like" />60
+      </view>
+    </view>
+  </view>
+
+  <!-- 好运锦鲤 -->
+  <view class="section cards">
+    <view class="cards-tit">
+      <view class="tit-desc">好运锦鲤</view>
+      <view class="tit-bg"></view>
+    </view>
+    <view class="cards-content">
+      <view class="con-item">摸摸锦鲤头，万事不用愁；摸摸锦鲤背，荣华又富贵；</view>
+      <view class="con-item">摸摸锦鲤尾，长命又百岁；从头摸到尾，顺风又顺水。</view>
+    </view>
+    <view class="cards-pic">
+      <image class="jinli" src="/image/jinli.png" />
+    </view>
+    <view class="tips-btn">
+      <view class="mark">></view>
+      <view class="text">摸摸锦鲤</view>
+      <view class="fortune-add">+∞好运</view>
+    </view>
+  </view>
+
+  <!-- 好运连连 -->
+  <view class="section cards">
+    <view class="cards-tit">
+      <view class="tit-desc">好运连连</view>
+      <view class="tit-bg"></view>
+    </view>
+    <view class="cards-content">
+      <view class="con-item">每日免费领取生活权益，精选最实用的优惠红包和特价商</view>
+    </view>
+    <view class="cards-package flex">
+      <view class="p-item">
+        <view class="i-pic yellow">
+          <image src="/image/meituan.png" />
+        </view>
+        <view class="i-txt yellow">外卖红包</view>
+        <view class="i-txt2">今日已领取</view>
+         <view class="fortune-add">+2好运</view>
+      </view>
+      <view class="p-item">
+        <view class="i-pic blue">
+          <image src="/image/ele.png" />
+        </view>
+        <view class="i-txt blue">外卖红包</view>
+        <view class="i-txt2">今日已领取</view>
+         <view class="fortune-add">+2好运</view>
+      </view>
+    </view>
+  </view>
+
+</view>

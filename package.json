@@ -1,0 +1,22 @@
+{
+  "name": "dys",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisicheng9527/dys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisicheng9527/dys/issues"
+  },
+  "homepage": "https://github.com/lisicheng9527/dys#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}
