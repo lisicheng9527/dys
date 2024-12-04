@@ -1,0 +1,5 @@
+@import "./iconfont/iconfont.wxss";
+
+view {
+  font-family: Arial, sans-serif;
+}
