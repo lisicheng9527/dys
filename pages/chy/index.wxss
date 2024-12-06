@@ -6,13 +6,6 @@
 .flex {
   display: flex;
 }
-.header {
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  font-size: 20px;
-  color: #643C2C;
-}
 .space-bar{
   height: 24rpx;
   background-color: #F7F7F7;
@@ -24,7 +17,7 @@
 }
 .today-for .fortune {
   background-color: #f2e1c6;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 50px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -34,11 +27,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 32rpx;
+  padding: 12rpx 32rpx 0;
 }
 .today-for .fortune .f-data .score-value {
-  font-size: 20px;
-  color: #643C2C;
+  font-size: 40rpx;
+  color: var(--themeColor);
 }
 .today-for .fortune .f-data .date {
   font-size: 28rpx;
@@ -46,7 +39,7 @@
   padding: 0 24rpx;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 100px;
-  color: #643C2C;
+  color: var(--themeColor);
 }
 .today-for .fortune .score-bar {
   justify-content: space-around;
@@ -67,13 +60,13 @@
   top: 34px;
   left: 0;
   right: 0;
-  color: #643C2C;
+  color: var(--themeColor);
   text-align: center;
 }
 .today-for .fortune .score-bar .score-circle .score-count {
   text-align: center;
   font-size: 16px;
-  color: #643C2C;
+  color: var(--themeColor);
 }
 .today-for .fortune .score-bar .score-cylinder {
   flex: 1;
@@ -123,12 +116,12 @@
   background-color: #42909D;
 }
 .today-for .fortune .score-bar .score-cylinder .score-list .s-num {
-  color: #643C2C;
+  color: var(--themeColor);
   font-size: 14px;
   margin: 10px 0;
 }
 .today-for .fortune .score-bar .score-cylinder .score-list .s-desc {
-  color: #643C2C;
+  color: var(--themeColor);
   font-size: 14px;
 }
 .today-for .msg-tips {
@@ -187,36 +180,39 @@
 .tips-btn .icon-arrow {
   position: absolute;
   font-size: 40rpx;
-  left: 160rpx;
+  left: 150rpx;
   font-weight: bold;
+}
+.tips-btn.plain {
+  background-color: #EECB9F;
+  color: #B94433;
+  border: 4rpx solid #B94433;
+  box-sizing: border-box;
+  line-height: 96rpx;
 }
 .fortune-add {
   position: absolute;
   right: 0;
-  top: -20rpx;
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
+  top: -24rpx;
+  line-height: 58rpx;
   text-align: center;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #fff;
   background-color: #42909D;
-  border: 1px solid #fff;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border: 1rpx solid #fff;
+  padding: 0 20rpx;
+  border-radius: 32rpx 32rpx 32rpx 0;
 }
 /* 好运锦鲤 */
 .cards {
   background-color: #fff;
-  padding: 10px 20px;
+  padding: 20rpx 32rpx;
   position: relative;
   margin-bottom: 20rpx;
 }
 .cards .cards-tit {
   width: 90px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 40rpx;
   color: #3D231F;
   position: relative;
 }
@@ -238,7 +234,7 @@
 }
 .cards .cards-content .con-item {
   text-align: center;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #3D231F;
 }
 .cards .cards-pic {

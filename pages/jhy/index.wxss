@@ -1,4 +1,65 @@
-.intro {
-  margin: 30px;
+.container {
+  padding: 20px 32rpx;
+  min-height: calc(100vh - 40px);
+  background: linear-gradient(to bottom, #F2DDBF, #F6F4E6);
+}
+.top {
+  margin-top: 24rpx;
+  color: var(--themeColor);
+  background: linear-gradient(to top, #FFFFFF, #F8F2E4);
+  padding: 32rpx;
+}
+.top-tit {
+  font-size: 40rpx;
+  margin-bottom: 20rpx;
+}
+.top-con {
+  font-size: 22rpx;
+}
+.top-con view {
+  line-height: 32rpx;
+}
+.top-con .ul{
+  display: flex;
+  flex-direction: column;
+}
+.top-con .red {
+  color: #B94433;
+}
+.doing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.doing image{
+  width: 80%;
+}
+.doing text {
+  position: absolute;
+  bottom: 50rpx;
+  font-size: 30rpx;
+}
+.bottom {
+  font-size: 22rpx;
+  background: linear-gradient(to top, #FFFFFF, #F8F2E4);
+  padding: 32rpx;
+}
+.bottom-con {
+  
+}
+.bottom .qrCode {
+  width: 220rpx;
+  height: 220rpx;
+  background: #fff;
+  margin: 30rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom .green {
+  color: #42909D;
+}
+.bottom .tip {
   text-align: center;
 }

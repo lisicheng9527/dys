@@ -1,0 +1,112 @@
+/* pages/mjl/mjl.wxss */
+.top {
+  position: relative;
+  overflow: hidden;
+  padding-top: 20px;
+}
+.top-bg{
+  position: absolute;
+  width: 140%;
+  left: -20%;
+  top: 0;
+  bottom: 0;
+  border-radius:0 0 80% 80%;
+  background: linear-gradient(to bottom, #EECB9F, #F6F4E7);
+  z-index: -1;
+}
+.header .icon-music {
+  position: absolute;
+  left: 32rpx;
+  width:40px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 32px;
+  color: #fff;
+}
+
+.lucks {
+  display: flex;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #3D231F;
+  padding: 30rpx 0 60rpx;
+}
+.lucks-lis {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* line-height: 22px; */
+}
+.lucks-lis view {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 44rpx;
+  padding: 0 12rpx;
+  margin-bottom: 20rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+}
+.lucks-lis text {
+  line-height: 44rpx;
+}
+.line {
+  width: 2rpx;
+  background: #3D231F;
+  margin: 68rpx 50rpx 0;
+}
+.section {
+  padding: 160rpx 32rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.section .jinli {
+  width: 64%;
+}
+.section .hand {
+  position: absolute;
+  width: 200rpx;
+  top: -100rpx;
+  right: 32rpx;
+}
+.section .point{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 128rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section .point .luck-point {
+  background: #B94433;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 0 12rpx;
+}
+.section .btn {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color: #fff;
+  border-radius: 200rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #B94433;
+  position: relative;
+}
+.section .btn .icon-arrow {
+  position: absolute;
+  font-size: 40rpx;
+  left: 180rpx;
+  font-weight: bold;
+}
+.section .tip-btn {
+  font-size: 32rpx;
+  margin: 40rpx 0;
+  color: #3D231F;
+  border-bottom: 1rpx solid #3D231F;
+}

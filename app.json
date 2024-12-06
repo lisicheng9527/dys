@@ -1,9 +1,10 @@
 {
-  "pages":[
+  "pages": [
     "pages/chy/index",
     "pages/jhy/index",
     "pages/jgd/index",
-    "pages/wd/index"
+    "pages/wd/index",
+    "pages/mjl/index"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -37,11 +38,11 @@
       }
     ]
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "攒好运",
-    "navigationBarTextStyle":"black",
-    "navigationStyle":"custom"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   }
 }

@@ -1,0 +1,37 @@
+<!--摸锦鲤-->
+<view>
+  <view class="top">
+    <view class="top-bg"></view>
+    <view class="header">
+      <view class="iconfont icon-music"></view>
+      好运屋
+    </view>
+    <view class="lucks">
+      <view class="lucks-lis lucks-l">
+        <view>总运气</view>
+        <text>好运：42</text>
+        <text>福气：342</text>
+        <text>摸鱼：3天</text>
+      </view>
+      <view class="line"></view>
+      <view class="lucks-lis lucks-r">
+        <view>今日运气</view>
+        <text>好运：42</text>
+        <text>福气：342</text>
+        <text>摸鱼：2分钟</text>
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <image class="jinli" mode="aspectFit" src="/image/jinli.png" />
+    <image class="hand" src="/image/hand.png" mode="aspectFit"/>
+    <view class="point">
+      <text class="luck-point">+1福气</text>
+    </view>
+    <view class="btn">
+      <text class="iconfont icon-arrow"></text>
+      摸一摸
+    </view>
+    <text space="emsp" class="tip-btn" bindtap="backHome">今日好运攒够了 返回首页</text> 
+  </view>
+</view>

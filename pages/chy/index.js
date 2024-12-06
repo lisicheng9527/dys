@@ -12,5 +12,18 @@ Page({
       { text: "饿了么 外卖红包", bgColor: "#bbdefb" }
     ],
     value: 78.4, // 当前得分
+    isSigninToday: false
+  },
+  toSigninToday() {
+    this.setData({
+      isSigninToday: true
+    })
+  },
+  toTouch() {
+    wx.navigateTo({
+      url: '/pages/mjl/index'
+    })
   }
+
+
 });

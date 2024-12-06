@@ -17,7 +17,7 @@
   content: "\e775";
 }
 
-.icon-yinfu:before {
+.icon-music:before {
   content: "\e600";
 }
 

@@ -1,1 +1,37 @@
-<view class="intro">交好运</view>
+<view class="container">
+  <view class="header">
+    好运屋
+  </view>
+  <view class="top">
+    <view class="top-tit">交好运</view>
+    <view class="top-con">
+      <view>平台目标：一个<text class="red">无机器人、无广告、无隐性消费</text>，干净纯粹的社交平台</view>
+      <view>交友理念：诚心交友，拒绝套路</view>
+      <view class="ul"> 
+        <text>交友方式：</text>
+        <text>1、双方可提出交友要求，系统根据生肖、星座、年龄、位置等做交叉匹配；</text>
+        <text>2、支持基于好运、功德等做个性化匹配；</text>
+        <text> 3、以交换“好运”的方式建立联系，无限畅聊，可互加好友；</text>
+      </view>
+    </view>
+    
+  </view>
+  <view class="doing">
+    <image src="/image/doing.png" mode="aspectFit"/>
+    <text>正在快马加鞭的研发中……</text>
+  </view>
+  <view class="bottom">
+    <view class="bottom-con">
+      <view>若您对此有兴趣：</view>
+      <view>1、提前填写交友信息，上线后会自动将您加入系统中，<text class="green">提前录入信息>></text>
+      </view>
+      <view>2、或者可加入微信群，提出您的宝贵意见，共同参与设计；</view>
+    </view>
+    <view class="qrCode">
+      群二维码
+    </view>
+    <view class="tip">若二维码失效，可添加开发者微信进群（haoyunwu168） 
+      <text class="green">复制</text>
+    </view>
+  </view>
+</view>
