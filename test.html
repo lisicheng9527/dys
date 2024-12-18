@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortune Score</title>
+  <style>
+    /* 整体容器样式 */
+   .container {
+      width: 200px;
+      height: 200px;
+      margin: 50px auto;
+      position: relative;
+    }
+
+    /* 圆环样式 */
+   .circle {
+      stroke-dasharray: 628;
+      /* 2 * PI * r，这里r = 100px */
+      stroke-dashoffset: 0;
+      stroke-width: 10;
+      fill: none;
+      transform: rotate(-90deg);
+      /* 使圆环从顶部开始 */
+      transform-origin: center;
+    }
+
+    /* 不同颜色的圆环分段 */
+   .circle.yellow {
+      stroke: yellow;
+      stroke-dashoffset: calc(628 - (628 * 0.784));
+      /* 根据百分比计算偏移量 */
+    }
+
+   .circle.orange {
+      stroke: orange;
+      stroke-dashoffset: calc(628 - (628 * 0.216));
+      /* 21.6%是78.4%剩下的部分 */
+    }
+
+    /* 中间的分数文本样式 */
+   .score {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    /* 底部的文字样式 */
+   .label {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <svg width="200" height="200">
+      <circle class="circle yellow" cx="100" cy="100" r="90"></circle>
+      <circle class="circle orange" cx="100" cy="100" r="90"></circle>
+    </svg>
+    <div class="score">78.5</div>
+    <div class="label">运势分</div>
+  </div>
+</body>
+
+</html>

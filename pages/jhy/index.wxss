@@ -14,7 +14,7 @@
   margin-bottom: 20rpx;
 }
 .top-con {
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
 .top-con view {
   line-height: 32rpx;
@@ -32,6 +32,14 @@
   align-items: center;
   position: relative;
 }
+.doing .bg{
+  position: absolute;
+  width: 80%;
+  height: 300rpx;
+  background: red;
+  bottom: 0;
+  z-index: -1;
+}
 .doing image{
   width: 80%;
 }
@@ -41,7 +49,7 @@
   font-size: 30rpx;
 }
 .bottom {
-  font-size: 22rpx;
+  font-size: 24rpx;
   background: linear-gradient(to top, #FFFFFF, #F8F2E4);
   padding: 32rpx;
 }

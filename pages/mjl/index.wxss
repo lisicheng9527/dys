@@ -2,7 +2,6 @@
 .top {
   position: relative;
   overflow: hidden;
-  padding-top: 20px;
 }
 .top-bg{
   position: absolute;
@@ -23,8 +22,16 @@
   background: rgba(255, 255, 255, 0.3);
   font-size: 32px;
   color: #fff;
+  animation: rotate 2.8s linear infinite;
 }
-
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .lucks {
   display: flex;
   justify-content: center;
@@ -63,14 +70,51 @@
   position: relative;
 }
 .section .jinli {
-  width: 64%;
+  width: 74%;
 }
 .section .hand {
   position: absolute;
   width: 200rpx;
   top: -100rpx;
   right: 32rpx;
+  /* animation: handMove 2s ease-in-out; */
+  animation: moveAndShake 2s ease-in-out forwards; 
 }
+/* @keyframes handMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-100px, 0);
+  }
+  100% {
+    transform: translate(-120px, 0);
+  }
+} */
+@keyframes moveAndShake {
+  0% {
+    transform: translate(0, 0); /* 初始位置，在手的起始位置 */
+  }
+  45% {
+    transform: translate(-100rpx, 10rpx); /* 手靠近锦鲤的目标位置，这里通过计算调整手相对容器的位置使其大致在锦鲤上方合适位置，你可根据图片实际尺寸等情况调整数值 */
+  }
+  65% {
+    transform: translate(-120rpx, 20rpx); /* 开始第一次晃动，稍微向左移动一点，调整数值可改变晃动幅度 */
+  }
+  75% {
+    transform: translate(-90rpx, 10rpx); /* 向右晃动回来，且幅度更大一点，可按需调整 */
+  }
+  85% {
+    transform: translate(-120rpx, 20rpx); /* 再次向左晃动一点 */
+  }
+  95% {
+    transform: translate(-90rpx, 10rpx); /* 最后向右晃动并基本回到中间位置，模拟晃动几下后稳定的状态 */
+  }
+  100% {
+    transform: translate(-90rpx, 10rpx); /* 动画结束保持在最后晃动后的位置，和停留位置基本一致 */
+  }
+}
+
 .section .point{
   position: absolute;
   left: 0;
@@ -88,15 +132,6 @@
 }
 .section .btn {
   width: 100%;
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 40rpx;
-  color: #fff;
-  border-radius: 200rpx;
-  display: flex;
-  justify-content: center;
-  background-color: #B94433;
-  position: relative;
 }
 .section .btn .icon-arrow {
   position: absolute;

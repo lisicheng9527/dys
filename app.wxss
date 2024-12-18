@@ -15,3 +15,15 @@ view {
   color: var(--themeColor);
   position: relative;
 }
+
+.btn {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color: #fff;
+  border-radius: 200rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #B94433;
+  position: relative;
+}

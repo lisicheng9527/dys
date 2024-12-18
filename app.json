@@ -3,8 +3,10 @@
     "pages/chy/index",
     "pages/jhy/index",
     "pages/jgd/index",
-    "pages/wd/index",
-    "pages/mjl/index"
+    "pages/mjl/index",
+    "pages/login/index",
+    "pages/test/index",
+    "pages/my/index"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -31,7 +33,7 @@
         "text": "积功德"
       },
       {
-        "pagePath": "pages/wd/index",
+        "pagePath": "pages/my/index",
         "iconPath": "image/tabBar/wd.png",
         "selectedIconPath": "image/tabBar/wd-select.png",
         "text": "我的"
@@ -44,5 +46,6 @@
     "navigationBarTitleText": "攒好运",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }

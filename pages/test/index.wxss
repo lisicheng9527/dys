@@ -1,0 +1,4 @@
+/* pages/test/index.wxss */
+.row {
+  margin-bottom: 10px;
+}

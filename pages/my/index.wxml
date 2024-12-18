@@ -1,0 +1,4 @@
+<!--pages/my/index.wxml-->
+<view style="padding-top: {{statusBarHeight+'px'}};">
+  <view class="header" bindtap="touch">我的</view>
+</view>

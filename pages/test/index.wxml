@@ -1,0 +1,7 @@
+<!--pages/test/index.wxml-->
+<view style="padding: 80px 16px;">
+  <view class="row">
+    <navigator url="/pages/chy/index" open-type="switchTab">返回首页</navigator>
+  </view>
+  <button size="mini" bindtap="toRemoveToken">清除登录token</button>
+</view>

@@ -1,5 +1,8 @@
+// import { login } from '../../apis/login'
+import { getDailyFortune } from '../../apis/zhy'
 Page({
   data: {
+    statusBarHeight: wx.statusBarHeight,
     categories: [
       { name: "健康", value: 93, color: "#4caf50" },
       { name: "财运", value: 73, color: "#ffc107" },
@@ -23,6 +26,23 @@ Page({
     wx.navigateTo({
       url: '/pages/mjl/index'
     })
+  },
+  onLoad() {
+    // this.login()
+    // wx.removeStorageSync('loginToken')
+    getDailyFortune()
+  },
+  onShow() {
+    
+  },
+  async login() {
+    let res = await login({
+      data: {
+        serviceId: 1,
+        callbackUrl: '/pages/jhy/index'
+      }
+    })
+    console.log('res---------', res)
   }
 
 

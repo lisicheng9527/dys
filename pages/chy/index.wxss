@@ -17,7 +17,6 @@
 }
 .today-for .fortune {
   background-color: #f2e1c6;
-  padding-top: 20px;
   padding-bottom: 50px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -165,17 +164,6 @@
 .today-for .msg-tips .likes text{
   position: relative;
   right: -3px;
-}
-.tips-btn {
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 40rpx;
-  color: #fff;
-  border-radius: 200rpx;
-  display: flex;
-  justify-content: center;
-  background-color: #B94433;
-  position: relative;
 }
 .tips-btn .icon-arrow {
   position: absolute;
