@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/jgd/index",
+    "pages/blessing/index",
+    "pages/createBlessing/index",
     "pages/chy/index",
     "pages/jhy/index",
-    "pages/jgd/index",
     "pages/mjl/index",
     "pages/login/index",
     "pages/test/index",
@@ -42,10 +44,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#F1DBBC",
     "navigationBarTitleText": "攒好运",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "lazyCodeLoading": "requiredComponents"
 }

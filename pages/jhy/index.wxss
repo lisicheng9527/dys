@@ -1,16 +1,25 @@
 .container {
-  padding: 20px 32rpx;
-  min-height: calc(100vh - 40px);
-  background: linear-gradient(to bottom, #F2DDBF, #F6F4E6);
+  padding: 0 32rpx;
+  /* min-height: calc(100vh - 40px); */
+  
+}
+.top-bg {
+  position: absolute;
+  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 566rpx;
+  width: 100%;
 }
 .top {
-  margin-top: 24rpx;
   color: var(--themeColor);
-  background: linear-gradient(to top, #FFFFFF, #F8F2E4);
+  background: #FBF4EB;
   padding: 32rpx;
+  border-radius: 16rpx;
 }
 .top-tit {
-  font-size: 40rpx;
+  font-size: 32rpx;
   margin-bottom: 20rpx;
 }
 .top-con {
@@ -31,14 +40,6 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-}
-.doing .bg{
-  position: absolute;
-  width: 80%;
-  height: 300rpx;
-  background: red;
-  bottom: 0;
-  z-index: -1;
 }
 .doing image{
   width: 80%;

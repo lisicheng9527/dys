@@ -1,0 +1,68 @@
+<!--祈福详情-->
+<view class="blessing">
+  <view class="tab">
+    <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">祈福内容</view>
+    <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1"><text class="iconfont icon-comment" ></text>评论</view>
+  </view>
+  <view class="user" id="index0">
+    <image class="avatar" src="https://q3.itc.cn/q_70/images03/20240613/862cf9ebe25b4bbfb95bdf2a1bf1aec0.jpeg"/>
+    <view class="user-fr">
+      <text class="nickname">会做饭的张张</text>
+      <view class="score">
+        <view>
+          <text class="iconfont icon-lotus"></text>
+          1231
+        </view>
+        <view>
+          <text class="iconfont icon-fourleaf"></text>
+          299
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tit">祝我队友新年热情不打烊</view>
+  <view class="con">新年到，福气到！愿你在新的一年里像追剧一样投入，想追星一样热情，每天活力满满，笑容常在，年轻就要有梦去追！</view>
+  <view class="imgs">
+    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+  </view>
+  <view class="comment-tit" id="index1">
+    <text class="iconfont icon-comment"></text>
+    评论（1278）
+  </view>
+  <view class="comment">
+    <text class="name">在伦敦的张伟丽：</text>新年快乐！接接接！
+    <text class="iconfont icon-love-plain fr"></text>
+    <view class="reply">
+      <view class="li">
+        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
+      </view>
+      <view class="li">
+        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
+      </view>
+    </view>
+  </view>
+  <view class="comment">
+    <text>在伦敦的张伟丽：</text>新年快乐！接接接！
+    <text class="iconfont icon-love-plain fr"></text>
+    <view class="reply">
+      <view class="li">
+        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="input">
+      <input type="text" placeholder="“赠人玫瑰，手有余香”"/>
+    </view>
+    <view class="icon-btn love">
+      <text class="iconfont icon-love"></text>
+      99
+    </view>
+    <view class="icon-btn share">
+      <text class="iconfont icon-share"></text>
+      12
+    </view>
+  </view>
+</view>

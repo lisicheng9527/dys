@@ -1,4 +1,273 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.top {
+  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
+  padding-bottom: 24rpx;
 }
+.tab {
+  display: flex;
+}
+.tab-item {
+  width: 160rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  margin:0 30rpx;
+  font-size: 36rpx;
+  position: relative;
+}
+.tab-item.active{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.tab-item.active::after {
+  display: block;
+  content: '';
+  width: 80rpx;
+  height: 8rpx;
+  background: #B94433;
+  position: absolute;
+  bottom: 4rpx;
+  left: 40rpx;
+}
+.section {
+  margin:24rpx 24rpx 16rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.section-item {
+  width: 49%;
+  height: 128rpx;
+  background: #FBF4EB;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+.section-item-fl{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.section-item-fl .li{
+  color: var(--themeColor);
+  
+}
+.section-item-fl .li view{
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.section-item-fl .li .iconfont {
+  font-weight: normal;
+  font-size: 44rpx;
+  margin-right: 12rpx;
+}
+.icon-lotus {
+  color: #B94433;
+}
+.icon-fourleaf {
+  color: #56A20A;
+}
+.section-item-fr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+}
+.sort {
+  color: var(--themeColor);
+  font-size: 24rpx;
+  padding: 0 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+}
+.sort view {
+  transform: rotate(90deg);
+}
+.sort .iconfont {
+  font-size: 28rpx;
+
+}
+.list {
+  margin: 0 24rpx;
+}
+.list .li {
+  background: #FBF4EB;
+  padding: 32rpx 24rpx 0;
+  font-size: 26rpx;
+  margin-bottom: 24rpx;
+  border-radius: 16rpx;
+}
+.user {
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+.user .avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  margin-right: 16rpx;
+}
+.user .user-fr {
+  height: 72rpx;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user .user-fr .nickname {
+  color: #000;
+}
+.user .user-fr .score {
+  display: flex;
+}
+.user .user-fr .score .iconfont {
+  font-size: 30rpx;
+}
+.user .user-fr .score view{
+  margin-right: 20rpx;
+}
+.list .li .tit {
+  font-size: 32rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.list .li .con {
+  color: #666;
+  margin-bottom: 30rpx;
+}
+.list .li .imgs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.list .li .imgs image {
+  width: 31%;
+  height: 180rpx;
+  border-radius: 16rpx;
+}
+.list .li .comment {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.list .li .comment .iconfont {
+  margin-right: 24rpx;
+  font-size: 30rpx;
+  color: var(--themeColor);
+
+}
+.list .li .comment .fr {
+  color: #333;
+  font-size: 20rpx;
+}
+.list .li .comment .fr text{
+  color: #666;
+}
+.list .li .numbers {
+  display: flex;
+  border-top: 1rpx #ddd solid;
+}
+.list .li .numbers view {
+  flex: 1;
+  text-align: center;
+  line-height: 44rpx;
+  margin: 20rpx 30rpx;
+  color: var(--themeColor);
+  display: flex;
+  align-items: center;
+}
+.list .li .numbers view .iconfont {
+  margin-right: 8rpx;
+}
+.list .li .numbers view:not(:last-child) {
+  border-right: 1rpx solid #ddd;
+}
+.create-btn {
+  position: fixed;
+  right: 24rpx;
+  bottom: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+.create-btn image {
+  width: 102rpx;
+  height: 124rpx;
+  margin-bottom: 10rpx;
+}
+.create-btn view {
+  width: 120rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  background: #F1D84A;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 22rpx;
+}
+/* 功德榜 */
+.ranking {
+  margin: 0 24rpx 20rpx;
+  position: relative;
+}
+.ranking1 {
+  height: 114rpx;
+  background: #FBF4EB;
+  border-radius: 16rpx;
+}
+.ranking-bg {
+  width: 100%;
+}
+.ranking-con {
+  position: absolute;
+  left: 16rpx;
+  right: 16rpx;
+  top: 34rpx;
+  bottom: 34rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.ranking-con .fll{
+  display: flex;
+  align-items: center;
+}
+.ranking-con .medal {
+  width: 96rpx;
+  margin-right: 28rpx;
+}
+.ranking-con .medal1 {
+  width: 64rpx;
+  margin-left: 8rpx;
+}
+.ranking-con .user {
+  position: relative;
+  top: 8rpx;
+}
+.ranking-con .user .bold {
+  font-size: 28rpx;
+}
+.ranking1 .user .avatar {
+  width: 50rpx;
+  height: 50rpx;
+}
+.ranking0 .user-fr {
+  height: 78rpx;
+}
+.ranking-con .frr {
+  font-size: 24rpx;
+}
+.ranking-con .luck {
+  color: var(--themeColor);
+}
+.ranking-con .luck .bold {
+  margin: 0 6rpx;
+  font-size: 32rpx;
+}
+.ranking-con .lotus {
+  color: #FF4000;
+}
+.ranking-con .lotus .iconfont {
+  margin-right: 6rpx;
+}
+

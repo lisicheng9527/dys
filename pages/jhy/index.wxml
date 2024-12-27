@@ -1,7 +1,5 @@
-<view class="container" style="padding-top: {{statusBarHeight + 'px'}};">
-  <view class="header">
-    好运屋
-  </view>
+<view class="container">
+  <view class="top-bg"></view>
   <view class="top">
     <view class="top-tit">交好运</view>
     <view class="top-con">
@@ -17,7 +15,6 @@
     
   </view>
   <view class="doing">
-    <view class="bg"></view>
     <image src="https://www.deyunhub.cn/image/developing.gif" mode="aspectFit"/>
     <text>正在快马加鞭的研发中……</text>
   </view>

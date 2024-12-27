@@ -1,0 +1,66 @@
+/* pages/createBlessing/index.wxss */
+.top {
+  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
+}
+.top .img {
+  width: 252rpx;
+  height: 252rpx;
+  margin: 0 auto;
+  background: #FEFFDD;
+  border: 1px solid #FFF4C6;
+  border-radius: 126rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top .img image {
+  width: 132rpx;
+}
+.edit {
+  padding: 0 24rpx;
+}
+.tit {
+  line-height: 40rpx;
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+}
+.edit-box {
+  background: #F5F5F5;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
+.edit-box input {
+  width: 100%;
+}
+.edit-box textarea {
+  word-wrap: break-word;
+  white-space: pre-line;
+  line-height: 36rpx;
+  font-size: 26rpx;
+  width: 100%;
+}
+.placeholder {
+  color: #D5D5D5;
+}
+.upload-btn {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 16rpx;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload-btn .iconfont {
+  color: #999;
+  font-size: 48rpx;
+}
+.btn {
+  position: fixed;
+  bottom: 24rpx;
+  left: 24rpx;
+  right: 24rpx;
+
+}

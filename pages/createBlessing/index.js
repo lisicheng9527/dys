@@ -1,4 +1,4 @@
-import { logining, refreshToken } from '../../utils/auth'
+// pages/createBlessing/index.js
 Page({
 
   /**
@@ -12,32 +12,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let needWxLogin = options.needWxLogin;
-    if(needWxLogin) {
-      this.login();
-    } else { // 只需要刷新token
-      this.refreshToken();
-    }
+
   },
-  async login() {
-    await logining();
-    if(wx.getStorageSync('loginToken')){
-      wx.navigateTo({
-        url: 'pages/chy/index',
-      })
-    }
-  },
-  async refreshToken() {
-    await refreshToken();
-    wx.navigateTo({
-      url: 'pages/chy/index',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    wx.setNavigationBarTitle({
+      title: '祈福',
+    })
   },
 
   /**

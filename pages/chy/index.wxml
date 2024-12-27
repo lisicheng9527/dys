@@ -1,8 +1,7 @@
 <view class="container">
   <!-- 今日运势 -->
   <view class="section today-for">
-    <view class="fortune" style="padding-top: {{statusBarHeight+'px'}};">
-      <view class="header">好运屋</view>
+    <view class="fortune">
       <view class="f-data">
         <text class="score-value">今日运势</text>
         <text class="date">2024.10.26 周六</text>

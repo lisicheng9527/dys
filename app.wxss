@@ -7,21 +7,22 @@ page {
 view {
   font-family: Arial, sans-serif;
 }
-.header {
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
-  color: var(--themeColor);
-  position: relative;
-}
 
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.bold {
+  font-weight: bold;
+}
 .btn {
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
   color: #fff;
-  border-radius: 200rpx;
+  border-radius: 88rpx;
   display: flex;
   justify-content: center;
   background-color: #B94433;

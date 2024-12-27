@@ -22,7 +22,7 @@ export const myRequest = async (api = '', method = 'POST', params = {}) => {
         ...params
     }
     console.log('config=======', config)
-    if(config.checkLogin && !wx.getStorageSync('loginToken')) {  // 接口请求前检查是否需要登录
+    if(config.checkLogin && (!wx.getStorageSync('loginToken') || !wx.getStorageSync('refreshToken'))) {  // 接口请求前检查是否需要登录
         await logining();
         if(!wx.getStorageSync('loginToken')) {
           wx.showToast({

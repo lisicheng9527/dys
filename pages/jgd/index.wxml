@@ -1,5 +1,164 @@
-<view class="intro">
-  <view class="header">
-    德运社
+<view>
+  <view class="top">
+    <view class="tab">
+      <view bindtap="toggleTab" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" class="tab-item {{tabIndex == index ? 'active':''}}">{{item}}</view>
+    </view>
+    <view class="section" wx:if="{{tabIndex == 0}}">
+      <view class="section-item section-item-fl">
+        <view class="li">
+          <view><text class="iconfont icon-lotus"></text>25</view>
+          我的功德
+        </view>
+        <view class="li">
+          <view><text class="iconfont icon-fourleaf"></text>12</view>
+          我的好运
+        </view>
+      </view>
+      <view class="section-item section-item-fr">
+        <text>“送祝福，赠好运，积功德”</text>
+        <text>“赠人玫瑰，手留余香”</text>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{tabIndex == 0}}">
+    <view class="sort">综合排序
+      <view><text class="iconfont icon-arrow"></text></view>
+    </view>
+    <view class="list">
+      <view class="li">
+        <view class="user">
+          <image class="avatar" src="https://q3.itc.cn/q_70/images03/20240613/862cf9ebe25b4bbfb95bdf2a1bf1aec0.jpeg"/>
+          <view class="user-fr">
+            <text class="nickname">会做饭的张张</text>
+            <view class="score">
+              <view>
+                <text class="iconfont icon-lotus"></text>
+                1231
+              </view>
+              <view>
+                <text class="iconfont icon-fourleaf"></text>
+                299
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tit">祝我队友新年热情不打烊</view>
+        <view class="con">新年到，福气到！愿你在新的一年里像追剧一样投入，想追星一样热情，每天活力满满，笑容常在，年轻就要有梦去追！</view>
+        <view class="imgs">
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+        </view>
+        <view class="comment">
+          <text class="iconfont icon-comment"></text>
+          <view class="fr">
+            <view>
+              <text>在伦敦的张丽伟：</text>新年快乐！接接接
+            </view>
+            <view>
+              <text>技术帝：</text>新年快乐！接接接
+            </view>
+          </view>
+        </view>
+        <view class="numbers">
+          <view>
+            <text class="iconfont icon-love-plain"></text>99
+          </view>
+          <view>
+            <text class="iconfont icon-comment"></text>1278
+          </view>
+          <view>
+            <text class="iconfont icon-share"></text>12
+          </view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="user">
+          <image class="avatar" src="https://q3.itc.cn/q_70/images03/20240613/862cf9ebe25b4bbfb95bdf2a1bf1aec0.jpeg"/>
+          <view class="user-fr">
+            <text class="nickname">会做饭的张张</text>
+            <view class="score">
+              <view>
+                <text class="iconfont icon-lotus"></text>
+                1231
+              </view>
+              <view>
+                <text class="iconfont icon-fourleaf"></text>
+                299
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tit">祝我队友新年热情不打烊</view>
+        <view class="con">新年到，福气到！愿你在新的一年里像追剧一样投入，想追星一样热情，每天活力满满，笑容常在，年轻就要有梦去追！</view>
+        <view class="imgs">
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+          <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+        </view>
+        <view class="comment">
+          <text class="iconfont icon-comment"></text>
+          <view class="fr">
+            <view>
+              <text>在伦敦的张丽伟：</text>新年快乐！接接接
+            </view>
+            <view>
+              <text>技术帝：</text>新年快乐！接接接
+            </view>
+          </view>
+        </view>
+        <view class="numbers">
+          <view>
+            <text class="iconfont icon-love-plain"></text>99
+          </view>
+          <view>
+            <text class="iconfont icon-comment"></text>1278
+          </view>
+          <view>
+            <text class="iconfont icon-share"></text>12
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="create-btn" bindtap="toCreate">
+      <image src="/image/bless.png" mode="aspectFit"/>
+      <view>去祈福</view>
+    </view>
+  </block>
+  
+  <!-- 功德榜 -->
+  <view wx:if="{{tabIndex == 1}}" class="ranking {{index > 2 ? 'ranking1':'ranking0'}}" wx:for="{{rankings}}" wx:key="index">
+    <image wx:if="{{index === 0}}" class="ranking-bg" src="/image/goldBg.png" mode="widthFix"/>
+    <image wx:elif="{{index === 1}}" class="ranking-bg" src="/image/silverBg.png" mode="widthFix"/>
+    <image wx:elif="{{index === 2}}" class="ranking-bg" src="/image/bronzeBg.png" mode="widthFix"/>
+    <view class="ranking-con">
+      <view class="fll">
+        <image wx:if="{{index === 0}}" class="medal" src="/image/goldMedal.png" mode="widthFix"/>
+        <image wx:elif="{{index === 1}}" class="medal" src="/image/silverMedal.png" mode="widthFix"/>
+        <image wx:elif="{{index === 2}}" class="medal" src="/image/bronzeMedal.png" mode="widthFix"/>
+        <image wx:else class="medal medal1" src="/image/normalMedal.png" mode="widthFix"/>
+        <view class="user">
+          <image class="avatar" src="https://q3.itc.cn/q_70/images03/20240613/862cf9ebe25b4bbfb95bdf2a1bf1aec0.jpeg"/>
+          <view class="user-fr">
+            <text class="nickname {{index <= 2 ? 'bold':''}}">会做饭的张张</text>
+            <view class="score">
+              <view>
+                <text class="iconfont icon-lotus"></text>
+                1231
+              </view>
+              <view>
+                <text class="iconfont icon-fourleaf"></text>
+                299
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="frr">
+        <view class="luck">好运相随<text class="bold">43</text>天</view>
+        <view class="lotus"><text class="iconfont icon-lotus"></text>+839</view>
+      </view>
+    </view>
+    
   </view>
 </view>

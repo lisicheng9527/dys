@@ -2,7 +2,6 @@
 import { getDailyFortune } from '../../apis/zhy'
 Page({
   data: {
-    statusBarHeight: wx.statusBarHeight,
     categories: [
       { name: "健康", value: 93, color: "#4caf50" },
       { name: "财运", value: 73, color: "#ffc107" },

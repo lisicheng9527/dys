@@ -24,8 +24,28 @@
 .icon-love:before {
   content: "\e60f";
 }
-
+.icon-love-plain:before {
+  content: "\e608";
+}
 .icon-triangle:before {
   content: "\e649";
+}
+.icon-lotus:before {
+  content: "\e601"
+}
+.icon-comment:before {
+  content: "\e60d"
+}
+.icon-fourleaf:before {
+  content: "\e615"
+}
+.icon-share:before {
+  content: "\e635"
+}
+.icon-home:before {
+  content: "\e60e"
+}
+.icon-add:before {
+  content: "\e657"
 }
 

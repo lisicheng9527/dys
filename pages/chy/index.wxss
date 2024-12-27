@@ -20,7 +20,7 @@
   padding-bottom: 50px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  background: linear-gradient(to bottom, #EECB9F, #F6F4E7);
+  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
 }
 .today-for .fortune .f-data {
   display: flex;

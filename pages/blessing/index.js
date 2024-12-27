@@ -1,43 +1,25 @@
-import { logining, refreshToken } from '../../utils/auth'
+// pages/blessing/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tabIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let needWxLogin = options.needWxLogin;
-    if(needWxLogin) {
-      this.login();
-    } else { // 只需要刷新token
-      this.refreshToken();
-    }
+
   },
-  async login() {
-    await logining();
-    if(wx.getStorageSync('loginToken')){
-      wx.navigateTo({
-        url: 'pages/chy/index',
-      })
-    }
-  },
-  async refreshToken() {
-    await refreshToken();
-    wx.navigateTo({
-      url: 'pages/chy/index',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    
   },
 
   /**
@@ -46,7 +28,23 @@ Page({
   onShow() {
 
   },
-
+  toggleTab(e) {
+    let index = e.currentTarget.dataset.id
+    this.setData({
+      tabIndex: index
+    })
+    this.scrollToAnchor(index)
+  },
+  scrollToAnchor: function(index) {
+    const query = wx.createSelectorQuery()
+    query.select('#index'+index).boundingClientRect()
+    query.selectViewport().scrollOffset()
+    query.exec(function(res) {
+      wx.pageScrollTo({
+        scrollTop: res[0].top + res[1].scrollTop
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
