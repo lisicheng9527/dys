@@ -1,9 +1,22 @@
+.container {
+  padding-top: 80rpx;
+}
 .top {
-  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
-  padding-bottom: 24rpx;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 80rpx;
+  height: 260rpx;
+  z-index: -1;
 }
 .tab {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #F1DBBC;
+  z-index: 100;
 }
 .tab-item {
   width: 160rpx;
@@ -29,42 +42,36 @@
   left: 40rpx;
 }
 .section {
-  margin:24rpx 24rpx 16rpx;
+  padding:24rpx 24rpx 16rpx;
   display: flex;
   justify-content: space-between;
 }
 .section-item {
-  width: 49%;
   height: 128rpx;
   background: #FBF4EB;
-  border-radius: 8rpx;
+  border-radius: 16rpx;
   font-size: 22rpx;
 }
 .section-item-fl{
+  padding: 0 44rpx;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-.section-item-fl .li{
   color: var(--themeColor);
-  
 }
-.section-item-fl .li view{
+.section-item-fl view{
   font-weight: bold;
   font-size: 32rpx;
 }
-.section-item-fl .li .iconfont {
+.section-item-fl .iconfont {
   font-weight: normal;
   font-size: 44rpx;
   margin-right: 12rpx;
 }
-.icon-lotus {
-  color: #B94433;
-}
-.icon-fourleaf {
-  color: #56A20A;
-}
 .section-item-fr {
+  flex: 1;
+  margin-left: 16rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,13 +85,27 @@
   margin-bottom: 16rpx;
   display: flex;
   align-items: center;
+  position: relative;
 }
-.sort view {
+.sort .sort-cur {
   transform: rotate(90deg);
 }
 .sort .iconfont {
   font-size: 28rpx;
-
+}
+.sort-list {
+  position: absolute;
+  left: 0;
+  width: 140rpx;
+  top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 3px 6px #ddd;
+  border-radius: 16rpx;
+  line-height: 56rpx;
+  padding: 12rpx 0;
 }
 .list {
   margin: 0 24rpx;
@@ -145,41 +166,84 @@
   height: 180rpx;
   border-radius: 16rpx;
 }
-.list .li .comment {
-  display: flex;
-  margin-bottom: 30rpx;
-}
-.list .li .comment .iconfont {
-  margin-right: 24rpx;
-  font-size: 30rpx;
-  color: var(--themeColor);
-
-}
-.list .li .comment .fr {
-  color: #333;
-  font-size: 20rpx;
-}
-.list .li .comment .fr text{
-  color: #666;
-}
 .list .li .numbers {
   display: flex;
   border-top: 1rpx #ddd solid;
+  margin-top: 30rpx;
 }
 .list .li .numbers view {
   flex: 1;
-  text-align: center;
   line-height: 44rpx;
-  margin: 20rpx 30rpx;
+  padding: 20rpx 30rpx;
   color: var(--themeColor);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .list .li .numbers view .iconfont {
   margin-right: 8rpx;
 }
 .list .li .numbers view:not(:last-child) {
   border-right: 1rpx solid #ddd;
+}
+.list .numbers .wish {
+  position: relative;
+}
+.list .numbers .wish .tip-tag {
+  position: absolute;
+  top: -70rpx;
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  background: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
+  color: #fff;
+  border-radius: 16rpx;
+  opacity: 0;
+  animation: fadeInUpOut 2s ease-in-out;
+}
+
+@keyframes fadeInUpOut {
+  0% {
+      opacity: 0;
+      transform: translateY(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-40px);
+  }
+}
+.list .numbers .share {
+  position: relative;
+}
+.list .numbers .share button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.loading {
+  color: #ccc;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+}
+.loading .iconfont {
+  animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .create-btn {
   position: fixed;
@@ -198,15 +262,17 @@
 .create-btn view {
   width: 120rpx;
   height: 40rpx;
+  line-height: 40rpx;
   font-size: 24rpx;
   background: #F1D84A;
   text-align: center;
   border: 1px solid #000;
   border-radius: 22rpx;
+  color: #643C2C;
 }
 /* 功德榜 */
 .ranking {
-  margin: 0 24rpx 20rpx;
+  margin: 24rpx 24rpx 20rpx;
   position: relative;
 }
 .ranking1 {

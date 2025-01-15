@@ -1,0 +1,132 @@
+/* pages/editUser/index.wxss */
+.tab {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 88rpx;
+  border-bottom: 1rpx solid #ddd;
+  z-index: 1000;
+}
+.tab view{
+  position: relative;
+  margin-top: 30rpx;
+  width: 50%;
+  color: var(--themeColor);
+  font-size: 32rpx;
+  text-align: center;
+}
+.tab view.active {
+  font-weight: bold;
+}
+.tab view.active::after {
+  display: block;
+  content: '';
+  width: 66rpx;
+  height: 2rpx;
+  background: #B94433;
+  position: absolute;
+  bottom: -1rpx;
+  left: 50%;
+  transform: translateX(-33rpx);
+}
+.baseinfo{
+  padding: 140rpx 32rpx 32rpx;
+  font-size: 28rpx;
+}
+.baseinfo .info-item {
+  display: flex;
+  margin-bottom: 30rpx;
+  line-height: 60rpx;
+}
+.baseinfo .info-item.info-item1{
+  margin-bottom: 60rpx;
+}
+.baseinfo .info-item .fll {
+  flex-shrink: 0;
+  min-width: 140rpx;
+  display: flex;
+  flex-direction: column;
+}
+.baseinfo .info-item .fll text{
+  color: #999;
+  line-height: 36rpx;
+}
+.baseinfo .info-item .frr{
+  font-size: 24rpx;
+}
+.baseinfo .info-item .tags{
+  display: flex;
+  flex-wrap: wrap;
+}
+.baseinfo .info-item .tags .tag {
+  color: #999;
+  height: 60rpx;
+  padding: 0 20rpx;
+  border: 1px solid #999;
+  border-radius: 4px;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.baseinfo .info-item .tags .tag.active {
+  border-color: #B94433;
+  color: #B94433;
+  position: relative;
+}
+.baseinfo .info-item .tags .tag.active .icon-right{
+  color: #B94534;
+  position: absolute;
+  right: -1px;
+  bottom: 0;
+  font-size: 8px;
+  line-height: 8px;
+}
+.baseinfo .info-item .input {
+  flex: 1;
+  border-bottom: 1px solid #999;
+  position: relative;
+  height: 60rpx;
+}
+.baseinfo .info-item .selector{
+  flex: 1;
+}
+.baseinfo .info-item .input .icon-arrow{
+  position: absolute;
+  right: 0;
+  font-size: 34rpx;
+  color: #999;
+  transform: rotate(90deg);
+}
+.baseinfo .info-item .textarea{
+  flex: 1;
+  border: 1px solid #999;
+  border-radius: 16rpx;
+}
+.baseinfo .info-item .textarea textarea{
+  padding: 12rpx;
+  width: 100%;
+  line-height: 36rpx;
+  height: 240rpx;
+}
+.baseinfo .info-item .numRange{
+  display: flex;
+}
+.baseinfo .info-item .numRange input {
+  width: 80rpx;
+  text-align: center;
+  border-bottom: 1px solid #999;
+}
+.baseinfo .info-item .numRange .zhi{
+  margin: 0 12rpx;
+}
+.item-tip{
+  color: #999;
+}
+.baseinfo .tip {
+  margin:100rpx 0 12rpx;
+  color: #A6A6A6;
+}

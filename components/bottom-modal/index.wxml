@@ -1,0 +1,16 @@
+<!--components/bottom-modal/index.wxml-->
+<view class="bottom-modal" hidden="{{!isShow}}">
+  <view class="modal-main">
+    <view class="modal-title">
+      {{title}}
+      <view class="modal-close" bindtap="close">
+        <text class="iconfont icon-close"></text>
+      </view>
+      
+    </view>
+    <view class="modal-content">
+      <slot></slot>
+  </view>
+  </view>
+  
+</view>

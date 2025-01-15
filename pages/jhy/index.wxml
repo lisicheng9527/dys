@@ -7,9 +7,9 @@
       <view>交友理念：诚心交友，拒绝套路</view>
       <view class="ul"> 
         <text>交友方式：</text>
-        <text>1、双方可提出交友要求，系统根据生肖、星座、年龄、位置等做交叉匹配；</text>
+        <text>1、双方可提出交友要求，根据生肖、星座、年龄、位置等做匹配；</text>
         <text>2、支持基于好运、功德等做个性化匹配；</text>
-        <text> 3、以交换“好运”的方式建立联系，无限畅聊，可互加好友；</text>
+        <text>3、以交换“好运”的方式建立联系，无限畅聊，可互加好友；</text>
       </view>
     </view>
     
@@ -21,15 +21,16 @@
   <view class="bottom">
     <view class="bottom-con">
       <view>若您对此有兴趣：</view>
-      <view>1、提前填写交友信息，上线后会自动将您加入系统中，<text class="green">提前录入信息>></text>
-      </view>
+      <view>1、<text class="green" bindtap="toEdit">提前录入交友信息>></text>，上线后会自动将您加入系统中；</view>
       <view>2、或者可加入微信群，提出您的宝贵意见，共同参与设计；</view>
     </view>
     <view class="qrCode">
-      群二维码
+      <!-- 群二维码 -->
+      <image src="{{wxUrl}}" mode="widthFix"/>
     </view>
-    <view class="tip">若二维码失效，可添加开发者微信进群（haoyunwu168） 
-      <text class="green">复制</text>
+    <view class="btn save-btn" bindtap="saveCode">保存二维码到相册</view>
+    <view class="tip">若二维码失效，可添加开发者微信进群（{{wxCode}}） 
+      <text class="green" bindtap="copy">复制</text>
     </view>
   </view>
 </view>

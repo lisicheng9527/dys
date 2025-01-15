@@ -1,4 +1,4 @@
-@import "./iconfont/iconfont.wxss";
+@import "/iconfont/iconfont.wxss";
 
 page {
   --themeColor:#643C2C;
@@ -17,6 +17,13 @@ view {
 .bold {
   font-weight: bold;
 }
+.multiline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .btn {
   height: 88rpx;
   line-height: 88rpx;
@@ -27,4 +34,14 @@ view {
   justify-content: center;
   background-color: #B94433;
   position: relative;
+}
+
+.top-bg {
+  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
+}
+.icon-lotus {
+  color: #B94433;
+}
+.icon-fourleaf {
+  color: #56A20A;
 }

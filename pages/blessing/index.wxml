@@ -1,68 +1,66 @@
 <!--祈福详情-->
 <view class="blessing">
-  <view class="tab">
+  <view class="tab top-bg">
     <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">祈福内容</view>
     <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1"><text class="iconfont icon-comment" ></text>评论</view>
   </view>
   <view class="user" id="index0">
-    <image class="avatar" src="https://q3.itc.cn/q_70/images03/20240613/862cf9ebe25b4bbfb95bdf2a1bf1aec0.jpeg"/>
+    <image class="avatar" src="{{detail.userInfo.headImgUrl}}"/>
     <view class="user-fr">
-      <text class="nickname">会做饭的张张</text>
+      <text class="nickname">{{detail.userInfo.nickname}}</text>
       <view class="score">
         <view>
           <text class="iconfont icon-lotus"></text>
-          1231
+          {{detail.userInfo.meritCount}}
         </view>
         <view>
           <text class="iconfont icon-fourleaf"></text>
-          299
+          {{detail.userInfo.luckyCount}}
         </view>
       </view>
     </view>
   </view>
-  <view class="tit">祝我队友新年热情不打烊</view>
-  <view class="con">新年到，福气到！愿你在新的一年里像追剧一样投入，想追星一样热情，每天活力满满，笑容常在，年轻就要有梦去追！</view>
-  <view class="imgs">
-    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
-    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
-    <image src="https://preview.qiantucdn.com/58pic/70/92/66/50358PIC36pkRPxkCQB6C_origin_PIC2018.jpg!w1024_new_small_1" mode=""/>
+  <view class="tit">{{detail.title}}</view>
+  <view class="con">{{detail.content}}</view>
+  <view class="imgs" wx:if="{{detail.imageUrls && detail.imageUrls.length}}">
+    <image wx:for="{{detail.imageUrls}}" wx:key="index" src="{{item}}" mode="widthFix"/>
   </view>
   <view class="comment-tit" id="index1">
     <text class="iconfont icon-comment"></text>
-    评论（1278）
+    评论（{{detail.commentCount}}）
   </view>
-  <view class="comment">
-    <text class="name">在伦敦的张伟丽：</text>新年快乐！接接接！
-    <text class="iconfont icon-love-plain fr"></text>
-    <view class="reply">
-      <view class="li">
-        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
-      </view>
-      <view class="li">
-        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
+  <view class="comment" wx:for="{{comments}}" wx:key="index">
+    <view class="li" data-id="{{item.commentId}}" data-index="{{index}}" bindtap="toReply">
+      <text class="name">{{item.userInfo.nickname}}：</text>{{item.content}}
+    </view>
+    <!-- <text class="iconfont icon-love-plain fr" bindtap="toLikeComment"></text> -->
+    <view class="tip more-tip" wx:if="{{item.replyCount && !item.isShowReplys}}" data-id="{{item.commentId}}" data-index="{{index}}" bindtap="getReply">
+      <text class="line">——</text>展开{{item.replyCount}}条回复
+      <text class="iconfont icon-arrow"></text>
+    </view>
+    <view class="reply" wx:if="{{item.isShowReplys}}">
+      <view class="li" wx:for="{{item.replys}}" wx:for-item="reply" wx:key="commentId">
+        <text class="name">{{reply.userInfo.nickname}}：</text>{{reply.content}}
       </view>
     </view>
-  </view>
-  <view class="comment">
-    <text>在伦敦的张伟丽：</text>新年快乐！接接接！
-    <text class="iconfont icon-love-plain fr"></text>
-    <view class="reply">
-      <view class="li">
-        <text class="name">技术帝&nbsp;回复&nbsp;在伦敦的张伟丽：</text>新年快乐！接接接！
-      </view>
+    <view class="tip pack-tip" data-index="{{index}}" wx:if="{{item.replyCount && item.isShowReplys}}" bindtap="packReplys">
+      <text class="line">——</text>收起
+      <text class="iconfont icon-arrow"></text>
     </view>
   </view>
   <view class="footer">
     <view class="input">
-      <input type="text" placeholder="“赠人玫瑰，手有余香”"/>
+      <input id="commentInput" focus="{{isFocus}}" type="text" placeholder="{{placeholder}}" bindinput="onInput" value="{{commentValue}}" confirm-type="send" 	bindconfirm="sendComment"/>
     </view>
-    <view class="icon-btn love">
-      <text class="iconfont icon-love"></text>
-      99
+    <view class="icon-btn wish" bindtap="likeBless">
+      <text class="iconfont {{detail.wishStatus == 1 ? 'icon-love':'icon-love-plain'}}"></text>
+      {{detail.wishCount}}
+      <view class="tip-tag" wx:if="{{detail.wishCountAdd}}">功德+1</view>
     </view>
     <view class="icon-btn share">
       <text class="iconfont icon-share"></text>
-      12
+      {{detail.forwardCount}}
+      <button open-type="share"></button>
     </view>
   </view>
 </view>

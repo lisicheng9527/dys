@@ -1,34 +1,29 @@
 <!--摸锦鲤-->
 <view>
-  <view class="top" style="padding-top: {{statusBarHeight + 'px'}}">
+  <view class="top">
     <view class="top-bg"></view>
-    <view class="header">
-      <view class="iconfont icon-music"></view>
-      好运屋
-    </view>
     <view class="lucks">
       <view class="lucks-lis lucks-l">
         <view>总运气</view>
-        <text>好运：42</text>
-        <text>福气：342</text>
-        <text>摸鱼：3天</text>
+        <text>好运：{{lucks.totalLuckyCount}}</text>
+        <text>福气：{{lucks.totalFortunateCount}}</text>
+        <text>摸鱼：{{lucks.totalDays}}天</text>
       </view>
       <view class="line"></view>
       <view class="lucks-lis lucks-r">
         <view>今日运气</view>
-        <text>好运：42</text>
-        <text>福气：342</text>
-        <text>摸鱼：2分钟</text>
+        <text>好运：{{lucks.dailyLuckyCount}}</text>
+        <text>福气：{{lucks.dailyFortunateCount}}</text>
+        <text>摸鱼：{{lucks.dailyMinutes}}分钟</text>
       </view>
     </view>
   </view>
   <view class="section">
     <image class="jinli" mode="aspectFit" src="https://www.deyunhub.cn/image/jinli.gif" />
-    <image class="hand" src="/image/hand.png" mode="aspectFit"/>
-    <view class="point">
-      <text class="luck-point">+1福气</text>
-    </view>
-    <view class="btn">
+    <image class="hand {{isMove}}" src="/image/hand.png" mode="aspectFit"/>
+    <text class="point fortunate-point" wx:if="{{fortunateCount}}">+{{fortunateCount}}福气</text>
+    <text class="point luck-point" wx:if="{{luckyCount}}">+{{luckyCount}}好运</text>
+    <view class="btn" bindtap="toTouchFish">
       <text class="iconfont icon-arrow"></text>
       摸一摸
     </view>

@@ -1,0 +1,114 @@
+<!--pages/editUser/index.wxml-->
+<wxs src="/utils/utils.wxs" module="arrayUtils" />
+<view>
+  <view class="tab top-bg">
+    <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">我的信息</view>
+    <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1">交友要求</view>
+  </view>
+  <view class="baseinfo" wx:if="{{tabIndex == 0}}">
+    <view class="info-item">
+      <text class="fll">我的性别：</text>
+      <view class="frr tags">
+        <view class="tag {{item.dictKey == userInfo.gender ? 'active':''}}" wx:for="{{dictTypes.gender}}" wx:key="dictKey" data-value="{{item.dictKey}}" data-key="gender" bindtap="chooseIt">{{item.dictName}}</view>
+      </view>
+    </view>
+    <view class="info-item">
+      <text class="fll">我的星座：</text>
+      <view class="frr tags">
+        <view class="tag {{item.dictKey == userInfo.zodiac ? 'active':''}}" wx:for="{{dictTypes.zodiac}}" wx:key="dictKey" data-value="{{item.dictKey}}" data-key="zodiac" bindtap="chooseIt">{{item.dictName}}</view>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll">出生年份：</text>
+      <picker class="selector" mode="selector" value="{{yearIndex}}" range="{{yearRange}}" bindchange="yearChange">
+        <view class="frr input">
+          {{userInfo.birthYear ? userInfo.birthYear:''}}
+          <text class="iconfont icon-arrow"></text>
+        </view>
+      </picker>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll">常驻区域：</text>
+      <view class="frr input">
+        <input type="text" value="{{userInfo.address}}" placeholder="如：上海杨浦" maxlength="20" data-key="address" bindinput="updateValue"/>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll"> 微信号：</text>
+      <view class="frr input">
+        <input type="text" value="{{userInfo.wxNum}}" placeholder="非必填" maxlength="30" data-key="wxNum" bindinput="updateValue"/>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll">交友宣言：</text>
+      <view class="frr textarea">
+        <textarea value="{{userInfo.declaration}}" placeholder="简单自我介绍可提高印象分哦~" maxlength="100" data-key="declaration" bindinput="updateValue"/>
+      </view>
+    </view>
+    <view class="tip">以上信息将用于每日运势及交好友频道</view>
+    <view class="btn" bindtap="saveUser">保存</view>
+  </view>
+  <view class="baseinfo" wx:if="{{tabIndex == 1}}">
+    <view class="info-item">
+      <view class="fll">
+        TA的性别：
+        <text>（可多选）</text>
+      </view>
+      <view class="frr tags">
+        <view class="tag {{arrayUtils.contains(friendShip.genders, item.dictKey) ? 'active':''}}" wx:for="{{dictTypes.gender}}" wx:key="dictKey" data-key="genders" data-value="{{item.dictKey}}" bindtap="chooseIt1">{{item.dictName}}
+          <text wx:if="{{arrayUtils.contains(friendShip.genders, item.dictKey)}}" class="iconfont icon-right"></text>
+        </view>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="fll">
+        TA的生肖：
+        <text>（可多选）</text>
+      </view>
+      <view class="frr tags">
+        <view class="tag {{arrayUtils.contains(friendShip.zhZodiacs, item.dictKey) ? 'active':''}}" wx:for="{{dictTypes.zhZodiac}}" wx:key="dictKey" data-key="zhZodiacs" data-value="{{item.dictKey}}" bindtap="chooseIt1">{{item.dictName}}
+          <text wx:if="{{arrayUtils.contains(friendShip.zhZodiacs, item.dictKey)}}" class="iconfont icon-right"></text>
+        </view>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="fll">
+        TA的星座：
+        <text>（可多选）</text>
+      </view>
+      <view class="frr tags">
+        <view class="tag {{arrayUtils.contains(friendShip.zodiacs, item.dictKey) ? 'active':''}}" wx:for="{{dictTypes.zodiac}}" wx:key="dictKey" data-key="zodiacs" data-value="{{item.dictKey}}" bindtap="chooseIt1">{{item.dictName}}
+          <text wx:if="{{arrayUtils.contains(friendShip.zodiacs, item.dictKey)}}" class="iconfont icon-right"></text>
+        </view>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll">TA的年龄：</text>
+      <view class="frr numRange">
+        <input type="number" value="{{friendShip.ageRange.begin}}" placeholder="0" data-key="ageRange.begin" bindinput="updateValue1"/>
+        <text class="zhi">至</text>
+        <input type="number" value="{{friendShip.ageRange.end}}" placeholder="无上限" data-key="ageRange.end" bindinput="updateValue1" maxlength="2"/>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll">TA的好运：</text>
+      <view class="frr numRange">
+        <input type="number" value="{{friendShip.luckyRange.begin}}" placeholder="0" data-key="luckyRange.begin" bindinput="updateValue1"/>
+        <text class="zhi">至</text>
+        <input type="number" value="{{friendShip.luckyRange.end}}" placeholder="无上限" data-key="luckyRange.end" bindinput="updateValue1"/>
+        <text class="item-tip">（好运越多，回复概率更高哦~）</text>
+      </view>
+    </view>
+    <view class="info-item info-item1">
+      <text class="fll"> TA的功德：</text>
+      <view class="frr numRange">
+        <input type="number" value="{{friendShip.meritRange.begin}}" placeholder="0" data-key="meritRange.begin" bindinput="updateValue1"/>
+        <text class="zhi">至</text>
+        <input type="number" value="{{friendShip.meritRange.end}}" placeholder="无上限" data-key="meritRange.end" bindinput="updateValue1"/>
+        <text class="item-tip">（功德多，更有爱心更善良哦~）</text>
+      </view>
+    </view>
+    <view class="tip">以上信息将用于每日运势及交好友频道</view>
+    <view class="btn" bindtap="toSaveFriendship">保存</view>
+  </view>
+</view>

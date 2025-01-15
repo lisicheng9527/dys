@@ -1,0 +1,39 @@
+/* components/bottom-modal/index.wxss */
+@import "/iconfont/iconfont.wxss";
+.bottom-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 10000;
+}
+.bottom-modal .modal-main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 300rpx;
+  background: #FBF4EB;
+  border-radius: 16rpx 16rpx 0 0;
+}
+.bottom-modal .modal-title {
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: var(--themeColor);
+  position: relative;
+  margin: 10rpx;
+}
+.bottom-modal .modal-title .modal-close {
+  height: 88rpx;
+  width: 88rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 26rpx;
+}
+.bottom-modal .modal-content{
+  padding: 24rpx;
+}

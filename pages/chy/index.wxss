@@ -1,206 +1,160 @@
 /* 页面全局样式 */
 .container {
-  /* background-color: #F7F7F7; */
   padding-bottom: 5px;
 }
-.flex {
-  display: flex;
+.top-bg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 400rpx;
+  z-index: -1;
 }
-.space-bar{
-  height: 24rpx;
-  background-color: #F7F7F7;
-}
-/* 今日运势 */
-.today-for {
-  position: relative;
-  margin-bottom: -50px;
-}
-.today-for .fortune {
-  background-color: #f2e1c6;
-  padding-bottom: 50px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
-}
-.today-for .fortune .f-data {
+.top-tit {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12rpx 32rpx 0;
+  margin: 24rpx;
 }
-.today-for .fortune .f-data .score-value {
+.top-tit .fll {
   font-size: 40rpx;
-  color: var(--themeColor);
-}
-.today-for .fortune .f-data .date {
-  font-size: 28rpx;
-  line-height: 40rpx;
-  padding: 0 24rpx;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 100px;
-  color: var(--themeColor);
-}
-.today-for .fortune .score-bar {
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px 40px;
-}
-.today-for .fortune .score-bar .score-circle {
-  position: relative;
-}
-.today-for .fortune .score-bar .score-circle .circle-pic {
-  width: 94px;
-  height: 66px;
-}
-.today-for .fortune .score-bar .score-circle .score-num {
-  font-size: 32px;
-  font-weight: bold;
-  position: absolute;
-  top: 34px;
-  left: 0;
-  right: 0;
-  color: var(--themeColor);
-  text-align: center;
-}
-.today-for .fortune .score-bar .score-circle .score-count {
-  text-align: center;
-  font-size: 16px;
-  color: var(--themeColor);
-}
-.today-for .fortune .score-bar .score-cylinder {
-  flex: 1;
-  justify-content: space-around;
-  margin-left: 20px;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list {
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item {
-  width: 20px;
-  height: 62px;
-  border-radius: 3px;
-  background-color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .cover {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .green {
-  height: 93%;
-  background-color: #859669;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .yellow {
-  height: 73%;
-  background-color: #F1D84A;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .red {
-  height: 83%;
-  background-color: #B94433;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .orange {
-  height: 83%;
-  background-color: #DA8532;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-item .blue {
-  height: 60%;
-  background-color: #42909D;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-num {
-  color: var(--themeColor);
-  font-size: 14px;
-  margin: 10px 0;
-}
-.today-for .fortune .score-bar .score-cylinder .score-list .s-desc {
-  color: var(--themeColor);
-  font-size: 14px;
-}
-.today-for .msg-tips {
-  position: relative;
-  top: -60px;
-  background-color: #fff;
-  border-radius: 20px;
   color: #3D231F;
-  box-shadow: 3px 3px 4px 0px #DA85321A;
-  margin: 0 32rpx;
-  padding: 20rpx 28rpx;
+}
+.top-tit .frr {
+  font-size: 28rpx;
+  height: 56rpx;
+  /* padding: 0 24rpx; */
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16rpx;
+  color: var(--themeColor);
+  display: flex;
+  align-items: center;
+  line-height: 26rpx;
+}
+.top-tit .frr text {
+  padding: 0 16rpx;
+}
+.top-tit .frr text:not(:first-child) {
+  border-left: 2rpx solid #C8C8C8;
+}
+.section {
+  background: #FBF4EB;
+  margin: 0 24rpx 16rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+}
+/* 今日运势 */
+.fortune {
+  color: #C1C1C1;
+  font-size: 22rpx;
+  margin-bottom: 16rpx;
+}
+.fortune text {
+  font-size: 48rpx;
+  color: var(--themeColor);
+}
+.scores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.scores .li {
+  width: 49%;
+  height:92rpx;
+  border-radius: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 16rpx;
+}
+.scores .li .fll {
+  font-size: 28rpx;
+}
+.scores .li .fll .iconfont {
+  margin-right: 4rpx;
+}
+.scores .li .frr {
+  font-size: 36rpx;
+}
+.green-bg {
+  background: #859669;
+}
+.orange-bg {
+  background: #DA8532;
+}
+.red-bg {
+  background: #B94433;
+}
+.yellow-bg {
+  background: #F1D84A;
+}
+.msg-tips {
+  color: var(--themeColor);
   font-size: 24rpx;
 }
-.icon-triangle {
-  position: absolute;
-  color: #fff;
-  top: -24rpx;
-  left: 120rpx;
-}
-.today-for .msg-tips .tips-title {
-  text-align: center;
+.msg-tips .tips-title {
   font-size: 32rpx;
   line-height: 44rpx;
   margin-bottom: 16rpx;
+  display: flex;
+  justify-content: center;
 }
-.today-for .msg-tips .tips-content {
+.msg-tips .tips-title text {
+  margin: 0 24rpx;
+}
+.msg-tips .tips-title text:nth-child(2) {
+  display: block;
+  transform: rotateY(180deg)
+}
+.msg-tips .tips-content {
   font-size: 24rpx;
 }
-.today-for .msg-tips .tips-author {
-  text-align: right;
-  margin: 20rpx 0 26rpx;
+.msg-tips .likes {
+  color: #999;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
 }
-.today-for .msg-tips .likes {
-  position: absolute;
-  top: 24rpx;
-  right: 40rpx;
-  color: #707070;
+.msg-tips .likes .iconfont{
+  color: var(--themeColor);
+  margin-right: 10rpx;
   font-size: 30rpx;
-  line-height: 42rpx;
 }
-.today-for .msg-tips .likes text{
+.msg-tips .btn-wrap {
   position: relative;
-  right: -3px;
 }
-.tips-btn .icon-arrow {
-  position: absolute;
-  font-size: 40rpx;
-  left: 150rpx;
-  font-weight: bold;
-}
-.tips-btn.plain {
+.msg-tips .btn.plain {
   background-color: #EECB9F;
   color: #B94433;
-  border: 4rpx solid #B94433;
+  border: 2rpx solid #B94433;
   box-sizing: border-box;
-  line-height: 96rpx;
 }
-.fortune-add {
+.luck-add {
   position: absolute;
   right: 0;
   top: -24rpx;
-  line-height: 58rpx;
-  text-align: center;
-  font-size: 32rpx;
+  height: 42rpx;
   color: #fff;
-  background-color: #42909D;
-  border: 1rpx solid #fff;
-  padding: 0 20rpx;
+  background-color: #56A20A;
+  padding: 0 16rpx;
   border-radius: 32rpx 32rpx 32rpx 0;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.luck-add .icon-fourleaf {
+  color: #fff;
+  font-size: 36rpx;
 }
 /* 好运锦鲤 */
-.cards {
-  background-color: #fff;
-  padding: 20rpx 32rpx;
-  position: relative;
-  margin-bottom: 20rpx;
-}
 .cards .cards-tit {
-  width: 90px;
-  font-size: 40rpx;
+  width: 188rpx;
+  font-size: 32rpx;
   color: #3D231F;
   position: relative;
 }
@@ -237,14 +191,30 @@
   margin: 0 28rpx;
 }
 .cards .cards-package {
+  display: flex;
   justify-content: space-around;
   padding-top: 34px;
+  flex-wrap: wrap;
 }
 .cards .cards-package .p-item {
-  width: 100px;
+  width: 50%;
   text-align: center;
   color: #fff;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 72rpx;
+  align-items: center;
+}
+.cards .cards-package .p-item .i-type {
+  width: 180rpx;
+  padding: 8rpx 0;
+  border-radius: 10rpx;
+  position: relative;
+}
+.cards .cards-package .p-item .i-type .iconfont {
+  font-size: 40rpx;
 }
 .cards .cards-package .p-item .i-pic {
   border-top-left-radius: 5px;
@@ -252,31 +222,22 @@
   padding-top: 5px;
 }
 .cards .cards-package .p-item .i-txt {
-  font-size: 12px;
-  padding-bottom: 5px;
+  font-size: 24rpx;
 }
 .cards .cards-package .p-item .i-txt2 {
+  width: 180rpx;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding: 5px 0;
+  padding: 3px 0;
   font-size: 12px;
+  color: #000;
+  background-color: #fff;
+}
+.cards .cards-package .p-item .i-txt2.disabled {
+  color: #fff;
   background-color: #e6e6e6;
 }
-.cards .cards-package .yellow {
-  background-color: #ffc300;
-}
-.cards .cards-package .yellow image {
-  width: 44px;
-  height: 21px;
-}
-.cards .cards-package .blue {
-  background-color: #0296ff;
-}
-.cards .cards-package .blue image {
-  width: 76px;
-  height: 20px;
-}
-.cards .cards-package .fortune-add {
-  top: -29px;
-  right: -41px;
+.cards .cards-package .luck-add {
+  top: -15px;
+  right: -30px;
 }

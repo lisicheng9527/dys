@@ -1,11 +1,13 @@
-// pages/createBlessing/index.js
+import { uploadImage, issue } from '../../apis/jgd'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content: "",
+    imageUrls: [],
+    title: ""
   },
 
   /**
@@ -14,55 +16,79 @@ Page({
   onLoad(options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-    wx.setNavigationBarTitle({
-      title: '祈福',
+  updateTitle(e) {
+    this.setData({
+      title: e.detail.value
     })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  updateContent(e) {
+    console.log('blur----')
+    this.setData({
+      content: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  chooseImage() {
+    let _this = this;
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+      success(res) {
+        console.log(res.tempFiles[0].size)
+        _this.toUploadImage(res.tempFiles[0].tempFilePath)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  async toUploadImage(file) {
+    let url = await uploadImage(file)
+    console.log(url)
+    let newImageUrls = this.data.imageUrls;
+    newImageUrls.push(url)
+    this.setData({
+      imageUrls: newImageUrls
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
+  del(e) {
+    let imgs = this.data.imageUrls;
+    let index = e.currentTarget.dataset.index;
+    imgs.splice(index, 1);
+    this.setData({
+      imageUrls: imgs
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
+  async toIssue() {
+    if(!this.data.title) {
+      return false;
+    }
+    let { content, imageUrls, title } = this.data;
+    await issue({
+      data: {
+        content,
+        imageUrls,
+        title
+      }
+    })
+    wx.showToast({
+      title: '发布成功',
+      icon: 'success',
+      duration: 2000
+    })
+    this.setData({
+      title: '',
+      content: '',
+      imageUrls: []
+    })
+    
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onUnload: function() {
+    console.log('onUnload-------')
+    // 获取上一页实例
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];
+    if (prevPage && prevPage.refreshData) {
+        prevPage.refreshData(); // 调用上一页的onLoad方法刷新数据
+    }
   }
 })

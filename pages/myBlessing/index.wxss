@@ -1,0 +1,176 @@
+/* pages/myBlessing/index.wxss */
+.top-bg {
+  position: absolute;
+  top: 0;
+  height: 200rpx;
+  width: 100%;
+  z-index: -1;
+}
+.list {
+  margin: 24rpx 24rpx 0;
+}
+.list .li {
+  background: #FBF4EB;
+  padding: 32rpx 24rpx 0;
+  font-size: 26rpx;
+  margin-bottom: 24rpx;
+  border-radius: 16rpx;
+}
+.list .li .tit {
+  font-size: 32rpx;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.list .li .con {
+  color: #666;
+  margin-bottom: 30rpx;
+}
+.list .li .imgs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.list .li .imgs image {
+  width: 31%;
+  height: 180rpx;
+  border-radius: 16rpx;
+}
+.list .li .comment {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.list .li .comment .iconfont {
+  margin-right: 24rpx;
+  font-size: 30rpx;
+  color: var(--themeColor);
+
+}
+.list .li .comment .fr {
+  color: #333;
+  font-size: 20rpx;
+}
+.list .li .comment .fr text{
+  color: #666;
+}
+.list .li .numbers {
+  display: flex;
+  border-top: 1rpx #ddd solid;
+}
+.list .li .numbers view {
+  /* flex: 1; */
+  line-height: 44rpx;
+  margin: 20rpx 0;
+  color: var(--themeColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list .li .numbers .w1 {
+  flex: 1;
+}
+.list .li .numbers .w2 {
+  width: 18%;
+}
+.list .li .numbers view .iconfont {
+  margin-right: 8rpx;
+}
+.list .li .numbers view:not(:last-child) {
+  border-right: 1rpx solid #ddd;
+}
+.list .numbers .wish {
+  position: relative;
+}
+.list .numbers .wish .tip-tag {
+  position: absolute;
+  top: -70rpx;
+  width: 120rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  background: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
+  color: #fff;
+  border-radius: 16rpx;
+  opacity: 0;
+  animation: fadeInUpOut 2s ease-in-out;
+}
+
+@keyframes fadeInUpOut {
+  0% {
+      opacity: 0;
+      transform: translateY(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-40px);
+  }
+}
+.list .numbers .share {
+  position: relative;
+}
+.list .numbers .share button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+.loading {
+  color: #ccc;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+}
+.loading .iconfont {
+  animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nodata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nodata .tip {
+  white-space: pre-wrap; /* 保留空白符序列，正常进行换行 */
+  word-wrap: break-word; 
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+}
+.nodata .img {
+  width: 252rpx;
+  height: 252rpx;
+  margin: 56rpx auto 0;
+  background: #FEFFDD;
+  border: 1px solid #FFF4C6;
+  border-radius: 126rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nodata .img image {
+  width: 132rpx;
+}
+.nodata .create-btn {
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  background: #F1D84A;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 22rpx;
+  margin-top: 20rpx;
+  color: #643C2C;
+}

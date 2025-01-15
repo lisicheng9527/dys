@@ -1,4 +1,115 @@
-<!--pages/my/index.wxml-->
-<view style="padding-top: {{statusBarHeight+'px'}};">
-  <view class="header" bindtap="touch">我的</view>
+<!-- 我的 -->
+<view>
+  <view class="top-bg"></view>
+  <view class="user">
+    <view class="fll">
+      <image class="avatar" src="{{userInfo.headImgUrl}}"/>
+      <view class="user-fr">
+        <view class="user-info">
+          <text class="nickname">{{userInfo.nickname}}</text>
+          <block wx:for="{{userInfo.userTags}}">
+            <view class="tag" style="background:{{tagColors[item.tagType]}}"  wx:key="index">
+              <text class="iconfont {{item.tagCode === 'male' ? 'icon-male':'icon-female'}}" wx:if="{{item.tagCode === 'gender'}}"></text>
+              <block wx:else>
+                {{item.tagName}}
+              </block>
+            </view>
+          </block>
+          
+        </view>
+        <view class="score">
+          <view>
+            <text class="iconfont icon-lotus"></text>
+            {{userInfo.meritCount}}
+          </view>
+          <view>
+            <text class="iconfont icon-fourleaf"></text>
+            {{userInfo.luckyCount}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <text class="frr" decode="{{true}}" bindtap="toEdit">完善信息&gt;</text>
+  </view>
+  <view class="link" bindtap="toMyBlessing">
+    <view class="tit">
+      查看我的祈福
+    </view>
+    <image class="bless-img" src="/image/bless.png" mode="widthFix"/>
+  </view>
+  <view class="link">
+    <view class="tit">
+      <text>推荐好友</text>
+      <text class="iconfont icon-share"></text>
+      <button class="hide-btn" open-type="share">分享</button>
+    </view>
+    <view class="con">好友点击您的分享链接即邀请成功，您获得10功德，好友获得20好运</view>
+  </view>
+  <view class="link" bindtap="toFollow">
+    <view class="tit">
+      <text>关注德运社</text>
+      <text class="iconfont icon-love-plain"></text>
+    </view>
+    <view class="con">为及时收到社交消息，需关注公众号“德运社”，您还可以获得50好运</view>
+  </view>
+  <view class="link" bindtap="toProposal">
+    <view class="tit">
+      <text>建言献策</text>
+      <text class="iconfont icon-comment"></text>
+    </view>
+    <view class="con">我们是初创小团队，很愿意倾听您的想法，也能实现您的诉求</view>
+  </view>
+  <bottom-modal isShow="{{isShowFollowModal}}" title="关注德云社公众号" bind:closeModal="closeFollow">
+    <view class="follow-modal">
+      <view class="step-tip">
+        <view class="step">
+          <view class="num">1</view>
+          <text>点击下方保存按钮</text>
+          <text>保存二维码到相册</text>
+        </view>
+        <view class="next">
+          <view class="next-1"></view>
+          <view class="next-2"></view>
+        </view>
+        <view class="step">
+          <view class="num">2</view>  
+          <text>打开微信页面扫描</text>
+          <text>二维码关注公众号</text>
+        </view>
+      </view>
+      <view class="qrCode">
+        <!-- 群二维码 -->
+        <image src="{{url.officialAccount}}" mode="aspectFit"/>
+      </view>
+      <view class="btn save-btn" bindtap="saveCode">保存二维码到相册</view>
+    </view>
+  </bottom-modal>
+  <bottom-modal isShow="{{isShowProposalModal}}" title="德运社建言献策" bind:closeModal="closeProposal">
+    <view class="follow-modal">
+      <view class="step-tip">
+        <view class="step">
+          <view class="num">1</view>
+          <text>点击下方保存按钮</text>
+          <text>保存二维码到相册</text>
+        </view>
+        <view class="next">
+          <view class="next-1"></view>
+          <view class="next-2"></view>
+        </view>
+        <view class="step">
+          <view class="num">2</view>  
+          <text>打开微信的页面</text>
+          <text>扫描二维码进群</text>
+        </view>
+      </view>
+      <view class="qrCode">
+        <!-- 群二维码 -->
+        <image src="{{url.groupChat}}" mode="aspectFit"/>
+      </view>
+      <view class="btn save-btn" bindtap="saveCode1">保存二维码到相册</view>
+      <view class="tip">若二维码失效，可添加开发者微信进群（{{wxCode}}） 
+        <text class="green" bindtap="copy">复制</text>
+      </view>
+    </view>
+  </bottom-modal>
 </view>

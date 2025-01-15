@@ -1,0 +1,8 @@
+
+// arrayUtils.wxs
+var arrayUtils = {
+  contains: function(array, item) {
+      return array.indexOf(item) !== -1;
+  }
+}
+module.exports = arrayUtils;

@@ -1,0 +1,51 @@
+<!--pages/myBlessing/index.wxml-->
+<view class="container">
+  <view class="top-bg"></view>
+  <view class="list">
+    <view class="li" wx:for="{{list}}" wx:key="blessingId">
+      <view bindtap="toDetail"  data-id="{{item.blessingId}}">
+        <view class="tit">{{item.title}}</view>
+        <view class="con multiline">{{item.content}}</view>
+        <view class="imgs" wx:if="{{item.imageUrls && item.imageUrls.length}}">
+          <image wx:for="{{item.imageUrls}}" wx:key="img" wx:for-item="img" src="{{img}}" mode="widthFix"/>
+        </view>
+      </view>
+      
+      <view class="numbers">
+        <view class="w1 wish" data-id="{{item.blessingId}}" data-index="{{index}}" bindtap="toWish">
+          <text class="iconfont {{item.wishStatus === 1 ? 'icon-love':'icon-love-plain'}}"></text>{{item.wishCount}}
+          <view class="tip-tag" wx:if="{{item.wishCountAdd}}">功德+1</view>
+        </view>
+        <view class="w1" bindtap="toComment" data-id="{{item.blessingId}}">
+          <text class="iconfont icon-comment"></text>{{item.commentCount}}
+        </view>
+        <view class="w1 share">
+          <text class="iconfont icon-share"></text>{{item.forwardCount}}
+          <button data-index="{{index}}" open-type="share">分享</button>
+        </view>
+        <view class="w2" bindtap="del" data-index="{{index}}">
+          <text class="iconfont icon-del"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="loading">
+    <block wx:if="{{!isEnd}}">
+      <text class="iconfont icon-loading"></text>
+      加载中
+    </block>
+    <block wx:elif="{{list.length > 8}}">
+      已经到底了
+    </block>
+  </view>
+  <view class="nodata" wx:if="{{!list.length && isEnd}}">
+    <view class="tip">
+      您暂未发布任何祈福
+      立即发起祈福
+    </view>
+    <view class="img">
+      <image src="/image/bless.png" mode="aspectFit"/>
+    </view>
+    <view class="create-btn" bindtap="toCreate">我要祈福</view>
+  </view>
+</view>

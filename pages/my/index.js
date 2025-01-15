@@ -1,11 +1,29 @@
-// pages/my/index.js
+import { getSimple } from '../../apis/my'
+import { getWxUrl } from '../../apis/jhy'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    statusBarHeight: wx.statusBarHeight,
+    userInfo: {
+      headImgUrl: "",
+      nickname: "",
+      userTags: []
+    },
+    tagColors: {
+      gender: '#A6CBE1',
+      zodiac: '#EBCF81',
+      birthYear: '#EB8183',
+      zhZodiac: '#EBBA81'
+    },
+    isShowFollowModal: false,
+    isShowProposalModal: false,
+    wxCode: 'xwill007',
+    url: {
+      officialAccount: '',
+      groupChat: '',
+    },
     clickCount: 0, // 记录点击次数
     lastClickTime: 0 // 记录上次点击的时间
   },
@@ -14,25 +32,94 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getSimpleData()
   },
-  touch() {
-
+  toEdit() {
+    wx.navigateTo({
+      url: '/pages/editUser/index',
+    })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  async getSimpleData() {
+    let userInfo = await getSimple();
+    this.setData({
+      userInfo
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  toMyBlessing() {
+    wx.navigateTo({
+      url: '/pages/myBlessing/index',
+    })
   },
-
+  async getWxUrlData(type) {
+    let { url } = await getWxUrl({data: {
+      type
+    }})
+    let newUrl = this.data.url;
+    newUrl[type] = url;
+    this.setData({
+      url: newUrl
+    })
+  },
+  toFollow() {
+    if(!this.data.url.officialAccount){
+      this.getWxUrlData('officialAccount');
+    }
+    this.setData({
+      isShowFollowModal: true
+    })
+  },
+  closeFollow() {
+    this.setData({
+      isShowFollowModal: false
+    })
+  },
+  toProposal() {
+    if(!this.data.url.groupChat){
+      this.getWxUrlData('groupChat');
+    }
+    this.setData({
+      isShowProposalModal: true
+    })
+  },
+  closeProposal() {
+    this.setData({
+      isShowProposalModal: false
+    })
+  },
+  saveCode() {
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.url.officialAccount,
+      success(res) {
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+        });
+      },
+      fail(err) {
+        wx.showToast({
+          title: '保存失败',
+          icon: 'error',
+        });
+      }
+    });
+  },
+  saveCode1() {
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.url.groupChat,
+      success(res) {
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+        });
+      },
+      fail(err) {
+        wx.showToast({
+          title: '保存失败',
+          icon: 'error',
+        });
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -66,6 +153,23 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  copy() {
+    wx.setClipboardData({
+      data: this.data.wxCode, // 确保是字符串类型
+      success: function(res) {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'success',
+        });
+      },
+      fail: function(err) {
+        wx.showToast({
+          title: '复制失败',
+          icon: 'none',
+        });
+      }
+    });
   },
   touch() {
     // 测试页面隐藏入口

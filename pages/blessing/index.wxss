@@ -11,7 +11,6 @@
   flex-direction: row;
   height: 88rpx;
   border-bottom: 1rpx solid #ddd;
-  background: linear-gradient(to bottom, #F1DBBC, #FFFFFF);
 }
 .tab view{
   position: relative;
@@ -37,6 +36,7 @@
 }
 .user {
   display: flex;
+  align-items: center;
   margin-bottom: 20rpx;
 }
 .user .avatar {
@@ -46,7 +46,7 @@
   margin-right: 10rpx;
 }
 .user .user-fr {
-  height: 70rpx;
+  height: 72rpx;
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
@@ -79,12 +79,6 @@
   border-radius: 16rpx;
   margin-bottom: 24rpx;
 }
-.icon-lotus {
-  color: #B94433;
-}
-.icon-fourleaf {
-  color: #56A20A;
-}
 .comment-tit {
   color: #3D231F;
   font-size: 32rpx;
@@ -97,24 +91,38 @@
 }
 .comment {
   font-size: 24rpx;
-  padding: 22rpx 0;
+  padding: 22rpx 0 0;
   color: #333;
   line-height: 34rpx;
   border-bottom: 1rpx solid #ddd;
 }
+.comment .li {
+  margin-bottom: 16rpx;
+}
 .comment .name {
   color: #666;
 }
-.reply { 
-  margin-top: 10rpx;
-  background: #F5F5F5;
-  padding:14rpx 20rpx;
-  border-radius: 16rpx;
+.comment .tip {
+  display: flex;
+  align-items: center;
+  color: #666;
+  margin: 0 26rpx 16rpx;
 }
-.reply .li {
-  line-height: 28rpx;
-  font-size: 20rpx;
-  margin: 4rpx 0;
+.comment .tip .line {
+  color: #ccc;
+  margin-right: 12rpx;
+}
+.comment .tip .icon-arrow {
+  font-size: 28rpx;
+}
+.comment .more-tip .icon-arrow {
+  transform: rotate(90deg);
+}
+.comment .pack-tip .icon-arrow {
+  transform: rotate(-90deg);
+}
+.reply { 
+  margin-left: 26rpx;
 }
 .footer {
   position: fixed;
@@ -133,6 +141,7 @@
 }
 .footer .input input{
   width: 100%;
+  line-height: 80rpx;
 }
 .footer .icon-btn {
   width: 150rpx;
@@ -142,4 +151,43 @@
 }
 .footer .share {
   border-left: 1rpx solid #ddd;
+  position: relative;
+}
+.footer .wish {
+  position: relative;
+}
+.footer .wish .tip-tag {
+  position: absolute;
+  top: -70rpx;
+  width: 120rpx;
+  height: 56rpx;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  background: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
+  color: #fff;
+  border-radius: 16rpx;
+  animation: fadeInUpOut 2s ease-in-out;
+}
+@keyframes fadeInUpOut {
+  0% {
+      opacity: 0;
+      transform: translateY(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-40px);
+  }
+}
+.share button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 10;
 }

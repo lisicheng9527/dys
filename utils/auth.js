@@ -58,9 +58,16 @@ export async function logining() {
 }
 
 export async function refreshTokening () {
-  removeTokenInfo();
-  let { token, refreshToken } = await toRefreshToken({ data: {
-    refreshToken: wx.getStorageSync('refreshToken')
-  }});
-  saveTokenInfo(token, refreshToken)
+  try {
+    let { token, refreshToken } = await toRefreshToken({ data: {
+      refreshToken: wx.getStorageSync('refreshToken')
+    }});
+    removeTokenInfo();
+    saveTokenInfo(token, refreshToken)
+    console.log('refreshTokening0--------', token, refreshToken)
+  } catch (error) {
+    removeTokenInfo();
+    await logining()
+  }
+
 }
