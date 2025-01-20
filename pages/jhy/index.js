@@ -1,7 +1,7 @@
 import { getWxUrl } from '../../apis/jhy'
 Page({
   data: {
-    wxCode: 'xwill007',
+    wxCode: 'haoyunwu168',
     wxUrl: ''
   },
   onLoad() {

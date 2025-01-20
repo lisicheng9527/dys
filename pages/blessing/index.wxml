@@ -2,7 +2,7 @@
 <view class="blessing">
   <view class="tab top-bg">
     <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">祈福内容</view>
-    <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1"><text class="iconfont icon-comment" ></text>评论</view>
+    <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1"><text class="iconfont icon-comment" ></text>评论（{{detail.commentCount}}）</view>
   </view>
   <view class="user" id="index0">
     <image class="avatar" src="{{detail.userInfo.headImgUrl}}"/>
@@ -23,7 +23,7 @@
   <view class="tit">{{detail.title}}</view>
   <view class="con">{{detail.content}}</view>
   <view class="imgs" wx:if="{{detail.imageUrls && detail.imageUrls.length}}">
-    <image wx:for="{{detail.imageUrls}}" wx:key="index" src="{{item}}" mode="widthFix"/>
+    <image wx:for="{{detail.imageUrls}}" wx:key="index" src="{{item}}" mode="widthFix" data-index="{{index}}" bindload="lastImgLoaded"/>
   </view>
   <view class="comment-tit" id="index1">
     <text class="iconfont icon-comment"></text>
@@ -50,9 +50,9 @@
   </view>
   <view class="footer">
     <view class="input">
-      <input id="commentInput" focus="{{isFocus}}" type="text" placeholder="{{placeholder}}" bindinput="onInput" value="{{commentValue}}" confirm-type="send" 	bindconfirm="sendComment"/>
+      <input id="commentInput" focus="{{isFocus}}" type="text" placeholder="{{placeholder}}" bindinput="onInput" value="{{commentValue}}" confirm-type="send"	cursor-spacing="{{10}}"	bindconfirm="sendComment"/>
     </view>
-    <view class="icon-btn wish" bindtap="likeBless">
+    <view class="icon-btn wish" bindtap="toWish">
       <text class="iconfont {{detail.wishStatus == 1 ? 'icon-love':'icon-love-plain'}}"></text>
       {{detail.wishCount}}
       <view class="tip-tag" wx:if="{{detail.wishCountAdd}}">功德+1</view>

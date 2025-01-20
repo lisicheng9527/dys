@@ -43,6 +43,7 @@ Page({
     this.setData({
       lucks
     })
+    this.dailyMinutes = lucks.dailyMinutes;
   },
   async toTouchFish() {
     if(this.data.isMove) return false;
@@ -56,9 +57,16 @@ Page({
     }, 2000)
     let res = await touchFish();
     if(res){
+      let lucks = this.data.lucks;
+      lucks.dailyFortunateCount = lucks.dailyFortunateCount + res.fortunateCount;
+      lucks.dailyLuckyCount = lucks.dailyLuckyCount + res.luckyCount;
+      let timeStamp = Date.now() - this.startTime;
+      this.dailyMinutes = this.dailyMinutes + timeStamp/(1000*60);
+      lucks.dailyMinutes = Math.ceil(this.dailyMinutes);
       this.setData({
         fortunateCount: res.fortunateCount,
-        luckyCount: res.luckyCount
+        luckyCount: res.luckyCount,
+        lucks,
       })
       setTimeout(() => {
         this.setData({

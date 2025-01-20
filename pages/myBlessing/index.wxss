@@ -27,11 +27,12 @@
 }
 .list .li .imgs {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 30rpx;
 }
 .list .li .imgs image {
-  width: 31%;
+  width: 32%;
+  margin-right: 2%;
   height: 180rpx;
   border-radius: 16rpx;
 }

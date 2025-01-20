@@ -7,7 +7,7 @@
         <view class="tit">{{item.title}}</view>
         <view class="con multiline">{{item.content}}</view>
         <view class="imgs" wx:if="{{item.imageUrls && item.imageUrls.length}}">
-          <image wx:for="{{item.imageUrls}}" wx:key="img" wx:for-item="img" src="{{img}}" mode="widthFix"/>
+          <image wx:for="{{item.imageUrls}}" wx:key="img" wx:for-item="img" src="{{img}}" mode="aspectFill"/>
         </view>
       </view>
       

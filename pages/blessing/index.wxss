@@ -141,7 +141,7 @@
 }
 .footer .input input{
   width: 100%;
-  line-height: 80rpx;
+  line-height: 100rpx;
 }
 .footer .icon-btn {
   width: 150rpx;
@@ -166,7 +166,8 @@
   background: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
   color: #fff;
   border-radius: 16rpx;
-  animation: fadeInUpOut 2s ease-in-out;
+  opacity: 0;
+  animation: fadeInUpOut 1.5s ease-in-out;
 }
 @keyframes fadeInUpOut {
   0% {

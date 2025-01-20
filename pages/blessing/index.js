@@ -16,14 +16,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  async onLoad(options) {
     this.blessingId = options.id;
-    this.getBlessingData()
+    await this.getBlessingData()
     this.getCommentListData()
     if(options.isComment == 1) {
       this.setData({
-        isFocus: true
+        tabIndex: 1,
       })
+      this.firstIndex = 1;  // 图片加载完成后再次滚动表示
+      if(!this.data.detail?.imageUrls?.length){
+        this.scrollToAnchor(1)
+      }
+    }
+  },
+  lastImgLoaded(e) {
+    let index = e.currentTarget.dataset.index;
+    if(index == this.data.detail.imageUrls.length - 1 && this.firstIndex == 1) {
+      this.scrollToAnchor(1)
     }
   },
   toReply(e) {
@@ -43,9 +53,15 @@ Page({
       commentValue: e.detail.value
     });
   },
-  async likeBless() {
+  async toWish() {
     // let f = this.detail.wishStatus == 1 ？ 'wish':''
-    if(this.data.etail.wishStatus === 1) return false
+    if(this.data.detail.wishStatus === 1) {
+      wx.showToast({
+        title: '已经送出了祝福哦',
+        icon: 'none'
+      })
+      return false
+    }
     await wish({
       data: {
         blessingId: this.blessingId

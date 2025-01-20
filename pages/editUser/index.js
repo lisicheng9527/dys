@@ -182,5 +182,13 @@ Page({
         icon: 'success'
       })
     }
+  },
+  onUnload: function() {
+    // 获取上一页实例
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];
+    if (prevPage && prevPage.refreshData) {
+        prevPage.refreshData(); // 调用上一页的onLoad方法刷新数据
+    }
   }
 })

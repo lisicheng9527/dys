@@ -171,9 +171,5 @@ Page({
       rankSorts: sorts,
       isEnd1: results.length < 10
     })
-  },
-  onUnload: function() {
-    // 移除监听器
-    this.selectComponent('#list').removeEventListener('refreshData', this.onRefreshData);
   }
 });

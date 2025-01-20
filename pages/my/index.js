@@ -34,6 +34,9 @@ Page({
   onLoad(options) {
     this.getSimpleData()
   },
+  refreshData() {
+    this.getSimpleData()
+  },
   toEdit() {
     wx.navigateTo({
       url: '/pages/editUser/index',
