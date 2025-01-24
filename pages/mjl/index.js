@@ -9,7 +9,7 @@ Page({
     lucks: {
       "dailyFortunateCount": 0,
       "dailyLuckyCount": 0,
-      "dailyMinutes": 0,
+      "dailyMinutes": 0,  // 后端存的是s
       "totalDays": 0,
       "totalFortunateCount": 0,
       "totalLuckyCount": 0
@@ -31,19 +31,20 @@ Page({
     this.startTime = Date.now()
     this.getTouchFishData()
   },
-  async toUpdateTime(mins) {
-    updateTime({
+  async toUpdateTime(s) {
+    await updateTime({
       data: {
-        touchFishMinutes: parseFloat(mins.toFixed(2))
+        touchFishMinutes: s
       }
     })
   },
   async getTouchFishData() {
     let lucks = await getTouchFishStats();
+    lucks.realDailyMinutes = Math.ceil(lucks.dailyMinutes/60)
     this.setData({
       lucks
     })
-    this.dailyMinutes = lucks.dailyMinutes;
+    this.dailyMinutes = lucks.dailyMinutes;  // dailyMinutes后端存的是s
   },
   async toTouchFish() {
     if(this.data.isMove) return false;
@@ -61,8 +62,8 @@ Page({
       lucks.dailyFortunateCount = lucks.dailyFortunateCount + res.fortunateCount;
       lucks.dailyLuckyCount = lucks.dailyLuckyCount + res.luckyCount;
       let timeStamp = Date.now() - this.startTime;
-      this.dailyMinutes = this.dailyMinutes + timeStamp/(1000*60);
-      lucks.dailyMinutes = Math.ceil(this.dailyMinutes);
+      this.dailyMinutes = this.dailyMinutes + timeStamp/1000;
+      lucks.realDailyMinutes = Math.ceil(this.dailyMinutes/60);
       this.setData({
         fortunateCount: res.fortunateCount,
         luckyCount: res.luckyCount,
@@ -102,7 +103,7 @@ Page({
    */
   onUnload() {
     let timeStamp = Date.now() - this.startTime;
-    this.toUpdateTime(timeStamp/(1000*60))
+    this.toUpdateTime(Math.ceil(timeStamp/1000))
   },
 
   /**

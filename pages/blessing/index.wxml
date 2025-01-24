@@ -33,24 +33,48 @@
     <view class="li" data-id="{{item.commentId}}" data-index="{{index}}" bindtap="toReply">
       <text class="name">{{item.userInfo.nickname}}：</text>{{item.content}}
     </view>
+    <view class="time" bindtap="toReply">
+      <text>{{item.commentTimeFormat}}</text>回复
+    </view>
     <!-- <text class="iconfont icon-love-plain fr" bindtap="toLikeComment"></text> -->
     <view class="tip more-tip" wx:if="{{item.replyCount && !item.isShowReplys}}" data-id="{{item.commentId}}" data-index="{{index}}" bindtap="getReply">
       <text class="line">——</text>展开{{item.replyCount}}条回复
       <text class="iconfont icon-arrow"></text>
     </view>
     <view class="reply" wx:if="{{item.isShowReplys}}">
-      <view class="li" wx:for="{{item.replys}}" wx:for-item="reply" wx:key="commentId">
-        <text class="name">{{reply.userInfo.nickname}}：</text>{{reply.content}}
+      <block wx:for="{{item.replys}}" wx:for-item="reply" wx:key="commentId">
+        <view class="li">
+          <text class="name">{{reply.userInfo.nickname}}：</text>{{reply.content}}
+        </view>
+        <view class="time">
+          <text>{{reply.commentTimeFormat}}</text>
+        </view>
+      </block>
+      
+    </view>
+    <view class="tip-wrap" wx:if="{{item.replyCount && item.isShowReplys}}">
+      <view class="tip more-tip" wx:if="{{item.replys.length < item.replyCount}}" data-index="{{index}}"  bindtap="getMoreReplys">
+        <text class="line">——</text>展开更多
+        <text class="iconfont icon-arrow"></text>
+      </view>
+      <view class="tip pack-tip" data-index="{{index}}"  bindtap="packReplys">
+        <text wx:if="{{item.replys.length == item.replyCount}}" class="line">——</text>收起
+        <text class="iconfont icon-arrow"></text>
       </view>
     </view>
-    <view class="tip pack-tip" data-index="{{index}}" wx:if="{{item.replyCount && item.isShowReplys}}" bindtap="packReplys">
-      <text class="line">——</text>收起
-      <text class="iconfont icon-arrow"></text>
-    </view>
+  </view>
+  <view class="loading">
+    <block wx:if="{{!isEnd}}">
+      <text class="iconfont icon-loading"></text>
+      加载中
+    </block>
+    <block wx:elif="{{comments.length > 8}}">
+      没有更多了
+    </block>
   </view>
   <view class="footer">
     <view class="input">
-      <input id="commentInput" focus="{{isFocus}}" type="text" placeholder="{{placeholder}}" bindinput="onInput" value="{{commentValue}}" confirm-type="send"	cursor-spacing="{{10}}"	bindconfirm="sendComment"/>
+      <input id="commentInput" focus="{{isFocus}}" type="text" placeholder="{{placeholder}}" bindinput="onInput" value="{{commentValue}}" confirm-type="send"	cursor-spacing="{{10}}"	confirm-hold="{{true}}"	bindconfirm="sendComment"/>
     </view>
     <view class="icon-btn wish" bindtap="toWish">
       <text class="iconfont {{detail.wishStatus == 1 ? 'icon-love':'icon-love-plain'}}"></text>

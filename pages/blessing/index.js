@@ -8,18 +8,19 @@ Page({
     tabIndex: 0,
     detail: {},
     comments: [],
+    sorts: [],
     commentValue: "",
     placeholder: "“赠人玫瑰，手有余香”",
-    isFocus: false
+    isFocus: false,
+    isEnd: false
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
     this.blessingId = options.id;
     await this.getBlessingData()
-    this.getCommentListData()
+    this.getRootCommentListData()
     if(options.isComment == 1) {
       this.setData({
         tabIndex: 1,
@@ -87,7 +88,7 @@ Page({
     let data = e.currentTarget.dataset;
     let index = data.index;
     if(!this.data.comments[data.index].replys?.length) {
-      this.getCommentListData(data.id, index)
+      this.getReplyCommentListData(data.id, index)
     } else {
       let newComments = this.data.comments;
       newComments[index].isShowReplys=true;
@@ -95,34 +96,45 @@ Page({
         comments: newComments
       })
     }
-    
+  },
+  getMoreReplys() {
+    let data = e.currentTarget.dataset;
+    let index = data.index;
+    this.getReplyCommentListData(data.id, index)
   },
   onShareAppMessage(res) {
     return {
       title: this.detail.title
     }
   },
-  async getCommentListData(rootCommentId, index) {
-    let { results } = await getCommentList({
+  async getRootCommentListData() {
+    let { results, sorts } = await getCommentList({
       data: {
         blessingId: this.blessingId,
-        rootCommentId: rootCommentId || -1,
-        sorts: []
+        sorts: this.data.sorts
       }
     })
-    if(!rootCommentId) {
-      this.setData({
-        comments: results
-      })
-    } else {
-      let newComments = this.data.comments;
-      newComments[index].replys = results;
+    this.setData({
+      comments: this.data.comments.concat(results),
+      sorts,
+      isEnd: !sorts?.length
+    })
+  },
+  async getReplyCommentListData(rootCommentId, index) {
+    let newComments = this.data.comments;
+    let { results, sorts } = await getCommentList({
+      data: {
+        blessingId: this.blessingId,
+        rootCommentId: rootCommentId,
+        sorts: newComments[index].sorts
+      }
+    })
+      newComments[index].replys = (newComments[index].replys || []).concat(results);
+      newComments[index].sorts = sorts;
       newComments[index].isShowReplys = true;
       this.setData({
-        comments: newComments,
-        placeholder: "“赠人玫瑰，手有余香”"
+        comments: newComments
       })
-    }
   },
   async sendComment() {
     if(this.rootCommentId) {
@@ -131,31 +143,52 @@ Page({
       await this.toIssueComment()
     }
     this.setData({
-      commentValue: ''
+      commentValue: '',
+      placeholder: '“赠人玫瑰，手留余香”'
     })
     
   },
   async toIssueComment(){
-    await issueComment({
+    let { commentId, userInfo } = await issueComment({
       data: {
         blessingId: this.blessingId,
         content: this.data.commentValue,
       }
     })
-    this.getCommentListData();
+    // 更新评论列表
+    let comments = this.data.comments;
+    comments.unshift({
+      commentId,
+      userInfo,
+      content: this.data.commentValue
+    })
+    let detail = this.data.detail;
+    detail.commentCount++;
+    this.setData({
+      comments,
+      detail
+    })
   },
   async toReplyComment(){
-    await replyComment({
+    let { commentId, userInfo } = await replyComment({
       data: {
         blessingId: this.blessingId,
         content: this.data.commentValue,
         replyUserId: this.userId,
         rootCommentId: this.rootCommentId,
         commentId: this.rootCommentId
-
       }
     })
-    this.getCommentListData(this.rootCommentId, this.parentIndex);
+    let comments = this.data.comments;
+    comments[this.parentIndex].replyCount++;
+    comments[this.parentIndex].replys.unshift({
+      commentId,
+      userInfo,
+      content: this.data.commentValue
+    })
+    this.setData({
+      comments
+    })
     this.rootCommentId = null;
     this.parentIndex = null;
     this.userId = null;
@@ -193,31 +226,11 @@ Page({
       })
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom() {
-
+    console.log('触底了')
+    console.log(this.data.isEnd)
+    if(!this.data.isEnd) {
+      this.getRootCommentListData();
+    }
   }
 })

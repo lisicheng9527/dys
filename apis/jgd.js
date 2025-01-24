@@ -24,7 +24,7 @@ export const deleteBlessing = params => myRequest('/api/blessing/delete', 'POST'
 //获取祈福评论列表
 export const getCommentList = params => myRequest('/api/blessing/comment/getList', 'POST', params)
 //发表祈福评论
-export const issueComment = params => myRequest('​/api/blessing/comment/issue', 'POST', params)
+export const issueComment = params => myRequest('/api/blessing/comment/issue', 'POST', params)
 //点赞祈福评论
 export const likeComment = params => myRequest('/api/blessing/comment/like', 'POST', params)
 //取消点赞祈福评论

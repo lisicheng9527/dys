@@ -51,6 +51,7 @@ export const myRequest = async (api = '', method = 'POST', params = {}) => {
     let url = /^https?:\/\//i.test(api) ? api : config.baseUrl + api;
 
     let data = params.data
+    console.log('url======', url);
     console.log('data======', data);
     return new Promise((resolve, reject) => {
         wx.request({

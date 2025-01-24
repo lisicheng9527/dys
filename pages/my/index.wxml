@@ -7,8 +7,8 @@
       <view class="user-fr">
         <view class="user-info">
           <text class="nickname">{{userInfo.nickname}}</text>
-          <block wx:for="{{userInfo.userTags}}">
-            <view class="tag" style="background:{{tagColors[item.tagType]}}"  wx:key="index">
+          <block wx:for="{{userInfo.userTags}}" wx:key="index">
+            <view class="tag" style="background:{{tagColors[item.tagType]}}" >
               <text class="iconfont {{item.tagCode === 'male' ? 'icon-male':'icon-female'}}" wx:if="{{item.tagCode === 'gender'}}"></text>
               <block wx:else>
                 {{item.tagName}}

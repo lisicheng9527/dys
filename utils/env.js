@@ -1,5 +1,5 @@
 let isTest = false;
-let apiBaseUrl = "http://www.deyunhub.cn";
+let apiBaseUrl = "https://www.deyunhub.cn";
 
 // 测试环境
 // isTest = true;

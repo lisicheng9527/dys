@@ -66,7 +66,7 @@
         <text class="iconfont icon-loading"></text>
         加载中
       </block>
-      <block wx:elif="{{list.length > 8}}">
+      <block wx:elif="{{list.length > 10}}">
         已经到底了
       </block>
     </view>

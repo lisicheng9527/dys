@@ -8,7 +8,7 @@ Page({
     list: [],
     sorts: [],
     rankings: [],
-    sortType: 1,
+    sortType: 2,
     sortName: {
       1: '综合排序',
       2: '最新'

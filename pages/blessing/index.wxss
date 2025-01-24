@@ -23,6 +23,9 @@
 .tab view.active {
   font-weight: bold;
 }
+.tab view .iconfont {
+  margin-right: 6rpx;
+}
 .tab view.active::after {
   display: block;
   content: '';
@@ -97,16 +100,25 @@
   border-bottom: 1rpx solid #ddd;
 }
 .comment .li {
-  margin-bottom: 16rpx;
+  margin-bottom: 12rpx;
 }
 .comment .name {
   color: #666;
+}
+.comment .time {
+  color: #666;
+  margin-bottom: 22rpx;
+}
+.comment .time text {
+  color: #aaa;
+  margin-right: 30rpx;
 }
 .comment .tip {
   display: flex;
   align-items: center;
   color: #666;
-  margin: 0 26rpx 16rpx;
+  margin: 0 26rpx 22rpx;
+  margin-right: 40rpx;
 }
 .comment .tip .line {
   color: #ccc;
@@ -118,11 +130,15 @@
 .comment .more-tip .icon-arrow {
   transform: rotate(90deg);
 }
+.comment .tip-wrap{
+  display: flex;
+}
 .comment .pack-tip .icon-arrow {
   transform: rotate(-90deg);
 }
 .reply { 
   margin-left: 26rpx;
+  margin-top: 20rpx;
 }
 .footer {
   position: fixed;
@@ -148,6 +164,9 @@
   color: var(--themeColor);
   text-align: center;
   height: 20px;
+}
+.footer .iconfont {
+  margin-right: 6rpx;
 }
 .footer .share {
   border-left: 1rpx solid #ddd;
@@ -191,4 +210,22 @@
   bottom: 0;
   opacity: 0;
   z-index: 10;
+}
+.loading {
+  margin: 20rpx 0;
+  color: #ccc;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+}
+.loading .iconfont {
+  animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

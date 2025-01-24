@@ -14,7 +14,7 @@
         <view>今日运气</view>
         <text>好运：{{lucks.dailyLuckyCount}}</text>
         <text>福气：{{lucks.dailyFortunateCount}}</text>
-        <text>摸鱼：{{lucks.dailyMinutes}}分钟</text>
+        <text>摸鱼：{{lucks.realDailyMinutes}}分钟</text>
       </view>
     </view>
   </view>
