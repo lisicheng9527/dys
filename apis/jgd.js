@@ -37,5 +37,7 @@ export const getRanking = params => myRequest('/api/meritlist/getRanking', 'POST
 export const likeMeritlist = params => myRequest('/api/meritlist/like', 'POST', params)
 //取消点赞功德榜
 export const unLikeMeritlist = params => myRequest('/api/meritlist/unlike', 'POST', params)
+//获取评论详情
+export const getCommentDetail = params => myRequest('/api/blessing/comment/get', 'POST', params)
 
 

@@ -1,4 +1,4 @@
-import { getBlessing, issueComment, likeComment, getCommentList, wish, replyComment } from '../../apis/jgd'
+import { getBlessing, issueComment, likeComment, getCommentList, wish, replyComment, getCommentDetail} from '../../apis/jgd'
 Page({
 
   /**
@@ -117,7 +117,7 @@ Page({
     this.setData({
       comments: this.data.comments.concat(results),
       sorts,
-      isEnd: !sorts?.length
+      isEnd: results.length < 20
     })
   },
   async getReplyCommentListData(rootCommentId, index) {
@@ -149,19 +149,16 @@ Page({
     
   },
   async toIssueComment(){
-    let { commentId, userInfo } = await issueComment({
+    let { commentId } = await issueComment({
       data: {
         blessingId: this.blessingId,
         content: this.data.commentValue,
       }
     })
     // 更新评论列表
+    let item = await this.toGetCommentDetail(commentId)
     let comments = this.data.comments;
-    comments.unshift({
-      commentId,
-      userInfo,
-      content: this.data.commentValue
-    })
+    comments.unshift(item)
     let detail = this.data.detail;
     detail.commentCount++;
     this.setData({
@@ -170,7 +167,7 @@ Page({
     })
   },
   async toReplyComment(){
-    let { commentId, userInfo } = await replyComment({
+    let { commentId } = await replyComment({
       data: {
         blessingId: this.blessingId,
         content: this.data.commentValue,
@@ -179,19 +176,25 @@ Page({
         commentId: this.rootCommentId
       }
     })
+    let item = await this.toGetCommentDetail(commentId)
     let comments = this.data.comments;
     comments[this.parentIndex].replyCount++;
-    comments[this.parentIndex].replys.unshift({
-      commentId,
-      userInfo,
-      content: this.data.commentValue
-    })
+    comments[this.parentIndex].replys.unshift(item)
     this.setData({
       comments
     })
     this.rootCommentId = null;
     this.parentIndex = null;
     this.userId = null;
+  },
+  async toGetCommentDetail(commentId) {
+    let res = await getCommentDetail({
+      data: {
+        blessingId: this.blessingId,
+        commentId
+      }
+    })
+    return res
   },
   async toLikeComment() {
     await likeComment({data: {

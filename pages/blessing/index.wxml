@@ -33,7 +33,7 @@
     <view class="li" data-id="{{item.commentId}}" data-index="{{index}}" bindtap="toReply">
       <text class="name">{{item.userInfo.nickname}}：</text>{{item.content}}
     </view>
-    <view class="time" bindtap="toReply">
+    <view class="time" bindtap="toReply" data-index="{{index}}">
       <text>{{item.commentTimeFormat}}</text>回复
     </view>
     <!-- <text class="iconfont icon-love-plain fr" bindtap="toLikeComment"></text> -->
