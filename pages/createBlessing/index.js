@@ -80,7 +80,9 @@ Page({
       content: '',
       imageUrls: []
     })
-    
+    setTimeout(() => {
+      wx.navigateBack()
+    }, 2000);
   },
   onUnload: function() {
     console.log('onUnload-------')

@@ -25,12 +25,6 @@
         "text": "攒好运"
       },
       {
-        "pagePath": "pages/jhy/index",
-        "iconPath": "image/tabBar/jhy.png",
-        "selectedIconPath": "image/tabBar/jhy-select.png",
-        "text": "交好运"
-      },
-      {
         "pagePath": "pages/jgd/index",
         "iconPath": "image/tabBar/jgd.png",
         "selectedIconPath": "image/tabBar/jgd-select.png",
