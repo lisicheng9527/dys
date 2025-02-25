@@ -1,0 +1,5 @@
+/* pages/protocol/index.wxss */
+.protocol {
+  padding: 24rpx;
+  font-size: 30rpx;
+}

@@ -1,0 +1,5 @@
+/* pages/policy/index.wxss */
+.policy {
+  padding: 24rpx;
+  font-size: 30rpx;
+}

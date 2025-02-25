@@ -18,7 +18,7 @@ Page({
       zodiac: '',
       birthYear: '',
       address: '',
-      wxNum: '',
+      // wxNum: '',
       declaration: ''
     },
     isGetedUserInfo: false,
@@ -57,6 +57,11 @@ Page({
     this.getByDictTypeData('gender');
     this.getByDictTypeData('zodiac');
     
+  },
+  onReady() {
+    wx.setNavigationBarTitle({
+      title: '我的信息',
+    })
   },
   setYearRange() {
     let years = [];

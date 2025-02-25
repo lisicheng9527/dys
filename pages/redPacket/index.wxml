@@ -1,0 +1,4 @@
+<!--pages/redPacket/index.wxml-->
+<view>
+  <web-view src="{{src}}"/>
+</view>

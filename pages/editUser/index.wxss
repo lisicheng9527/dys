@@ -13,7 +13,8 @@
 .tab view{
   position: relative;
   margin-top: 30rpx;
-  width: 50%;
+  /* width: 50%; */
+  flex: 1;
   color: var(--themeColor);
   font-size: 32rpx;
   text-align: center;
@@ -33,7 +34,7 @@
   transform: translateX(-33rpx);
 }
 .baseinfo{
-  padding: 140rpx 32rpx 32rpx;
+  padding: 32rpx 32rpx;
   font-size: 28rpx;
 }
 .baseinfo .info-item {

@@ -1,10 +1,10 @@
 <!--pages/editUser/index.wxml-->
 <wxs src="/utils/utils.wxs" module="arrayUtils" />
 <view>
-  <view class="tab top-bg">
+  <!-- <view class="tab top-bg">
     <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">我的信息</view>
     <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1">交友要求</view>
-  </view>
+  </view> -->
   <view class="baseinfo" wx:if="{{tabIndex == 0}}">
     <view class="info-item">
       <text class="fll">我的性别：</text>
@@ -33,19 +33,19 @@
         <input type="text" value="{{userInfo.address}}" placeholder="如：上海杨浦" maxlength="20" data-key="address" bindinput="updateValue"/>
       </view>
     </view>
-    <view class="info-item info-item1">
+    <!-- <view class="info-item info-item1">
       <text class="fll"> 微信号：</text>
       <view class="frr input">
         <input type="text" value="{{userInfo.wxNum}}" placeholder="非必填" maxlength="30" data-key="wxNum" bindinput="updateValue"/>
       </view>
-    </view>
+    </view> -->
     <view class="info-item info-item1">
       <text class="fll">交友宣言：</text>
       <view class="frr textarea">
         <textarea value="{{userInfo.declaration}}" placeholder="简单自我介绍可提高印象分哦~" maxlength="100" data-key="declaration" bindinput="updateValue"/>
       </view>
     </view>
-    <view class="tip">以上信息将用于每日运势及交好友频道</view>
+    <!-- <view class="tip">以上信息将用于每日运势及交好友频道</view> -->
     <view class="btn" bindtap="saveUser">保存</view>
   </view>
   <view class="baseinfo" wx:if="{{tabIndex == 1}}">

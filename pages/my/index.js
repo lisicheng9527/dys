@@ -90,37 +90,51 @@ Page({
     })
   },
   saveCode() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.url.officialAccount,
-      success(res) {
-        wx.showToast({
-          title: '保存成功',
-          icon: 'success',
+    let _this = this;
+    wx.downloadFile({
+      url: this.data.url.officialAccount, // 服务器图片的URL
+      success: function(res) {
+        // 下载成功后，保存到相册
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath, // 临时文件路径
+          success: function(res) {
+            _this.toast('保存成功', 'success')
+          },
+          fail: function(err) {
+            _this.toast('保存失败', 'error')
+          }
         });
       },
-      fail(err) {
-        wx.showToast({
-          title: '保存失败',
-          icon: 'error',
-        });
+      fail: function(err) {
+        _this.toast('下载失败', 'error')
       }
     });
   },
   saveCode1() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.url.groupChat,
-      success(res) {
-        wx.showToast({
-          title: '保存成功',
-          icon: 'success',
+    let _this = this;
+    wx.downloadFile({
+      url: this.data.url.groupChat, // 服务器图片的URL
+      success: function(res) {
+        // 下载成功后，保存到相册
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath, // 临时文件路径
+          success: function(res) {
+            _this.toast('保存成功', 'success')
+          },
+          fail: function(err) {
+            _this.toast('保存失败', 'error')
+          }
         });
       },
-      fail(err) {
-        wx.showToast({
-          title: '保存失败',
-          icon: 'error',
-        });
+      fail: function(err) {
+        _this.toast('下载失败', 'error')
       }
+    });
+  },
+  toast(title, icon){
+    wx.showToast({
+      title,
+      icon,
     });
   },
   /**

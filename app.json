@@ -10,11 +10,14 @@
     "pages/test/index",
     "pages/my/index",
     "pages/myBlessing/index",
-    "pages/editUser/index"
+    "pages/editUser/index",
+    "pages/protocol/index",
+    "pages/policy/index",
+    "pages/redPacket/index"
   ],
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#DA8532",
     "borderStyle": "white",
     "backgroundColor": "#fff",
     "list": [

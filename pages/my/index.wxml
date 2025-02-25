@@ -59,6 +59,10 @@
     </view>
     <view class="con">我们是初创小团队，很愿意倾听您的想法，也能实现您的诉求</view>
   </view>
+  <view class="guarantee">
+    <navigator url="/pages/protocol/index">《德运社用户服务协议》</navigator>
+    <navigator url="/pages/policy/index">《德运社隐私政策》</navigator>
+  </view>
   <bottom-modal isShow="{{isShowFollowModal}}" title="关注德云社公众号" bind:closeModal="closeFollow">
     <view class="follow-modal">
       <view class="step-tip">

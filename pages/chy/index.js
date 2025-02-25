@@ -72,7 +72,7 @@ Page({
   receiveRights(e) {
     let item = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.index;
-    wx.navigateTo({ url: item.forwardUrl})
+    item.forwardUrl && wx.navigateTo({ url: '/pages/redPacket/index?src='+item.forwardUrl})
     receive({
       data: {
         rightsType: item.rightsType

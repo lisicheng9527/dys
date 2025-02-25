@@ -52,7 +52,7 @@
     </view>
   </view>
   <!-- 好运锦鲤 -->
-  <view class="section cards">
+  <!-- <view class="section cards">
     <view class="cards-tit">
       <view class="tit-desc">好运锦鲤</view>
       <view class="tit-bg"></view>
@@ -68,7 +68,7 @@
       <view class="text">摸摸锦鲤</view>
       <view class="luck-add">+∞好运</view>
     </view>
-  </view>
+  </view> -->
   <!-- 好运连连 -->
   <view class="section cards">
     <view class="cards-tit">
