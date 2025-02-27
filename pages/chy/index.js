@@ -58,12 +58,12 @@ Page({
     })
   },
   async onLoad() {
-    await this.getDailyFortuneData();
+    this.getDailyFortuneData();
+  },
+  onShow() {
     this.getOneData();
     this.getSignStatusData();
     this.getListData();
-  },
-  onShow() {
     this.setData({
       date: formatTime(),
       week: getWeek()
@@ -72,16 +72,33 @@ Page({
   receiveRights(e) {
     let item = e.currentTarget.dataset.item;
     let index = e.currentTarget.dataset.index;
-    item.forwardUrl && wx.navigateTo({ url: '/pages/redPacket/index?src='+item.forwardUrl})
-    receive({
-      data: {
-        rightsType: item.rightsType
+    if(!item.forwardUrl) {
+      wx.showToast({
+        title: '暂不支持',
+        icon: 'error'
+      })
+      return false;
+    }
+    let obj = JSON.parse(item.forwardUrl);
+    let _this = this;
+    wx.navigateToMiniProgram({
+      appId: obj.appId,
+      path: obj.path,
+      success(res) {
+        if(!item.received){
+          receive({
+            data: {
+              rightsType: item.rightsType
+            }
+          })
+          let newRights = _this.data.rights;
+          newRights[index].received = true;
+          _this.setData({
+            rights: newRights
+          })
+        }
+        
       }
-    })
-    let newRights = this.data.rights;
-    newRights[index].received = true;
-    this.setData({
-      rights: newRights
     })
   },
   onShareAppMessage(res) {

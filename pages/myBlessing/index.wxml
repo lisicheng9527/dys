@@ -14,7 +14,7 @@
       <view class="numbers">
         <view class="w1 wish" data-id="{{item.blessingId}}" data-index="{{index}}" bindtap="toWish">
           <text class="iconfont {{item.wishStatus === 1 ? 'icon-love':'icon-love-plain'}}"></text>{{item.wishCount}}
-          <view class="tip-tag" wx:if="{{item.wishCountAdd}}">功德+1</view>
+          <view class="tip-tag" wx:if="{{item.wishCountAdd}}">善心+1</view>
         </view>
         <view class="w1" bindtap="toComment" data-id="{{item.blessingId}}">
           <text class="iconfont icon-comment"></text>{{item.commentCount}}
@@ -40,12 +40,12 @@
   </view>
   <view class="nodata" wx:if="{{!list.length && isEnd}}">
     <view class="tip">
-      您暂未发布任何祈福
-      立即发起祈福
+      您暂未发布任何许愿
+      立即去许愿
     </view>
     <view class="img">
       <image src="/image/bless.png" mode="aspectFit"/>
     </view>
-    <view class="create-btn" bindtap="toCreate">我要祈福</view>
+    <view class="create-btn" bindtap="toCreate">我要许愿</view>
   </view>
 </view>

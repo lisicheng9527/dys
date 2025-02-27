@@ -31,7 +31,7 @@
         "pagePath": "pages/jgd/index",
         "iconPath": "image/tabBar/jgd.png",
         "selectedIconPath": "image/tabBar/jgd-select.png",
-        "text": "积功德"
+        "text": "积善心"
       },
       {
         "pagePath": "pages/my/index",

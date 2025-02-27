@@ -85,7 +85,7 @@
           <view class="i-txt">{{item.displayName}}</view>
           <view class="luck-add" wx:if="{{!item.received}}">+2好运</view>
         </view>
-        <view class="i-txt2 disabled" wx:if="{{item.received}}">今日已领取</view>
+        <view class="i-txt2 disabled" wx:if="{{item.received}}" data-item="{{item}}" data-index="{{index}}" bindtap="receiveRights">今日已领取</view>
         <view class="i-txt2" wx:else data-item="{{item}}" data-index="{{index}}" bindtap="receiveRights">每日领取</view>
       </view>
     </view>

@@ -2,7 +2,7 @@ import { getList, getRanking, wish, forward } from '../../apis/jgd'
 import { getMeritCount } from '../../apis/my'
 Page({
   data: {
-    tabs:["祈福榜", "功德榜"],
+    tabs:["许愿榜", "善心榜"],
     tabIndex: 0,
     meritCount: 0,
     list: [],

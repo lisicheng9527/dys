@@ -106,7 +106,7 @@ Page({
     let _this = this;
     wx.showModal({
       title: '确定删除',
-      content: ' 确定删除这条祈福内容吗？删除后不可恢复。',
+      content: ' 确定删除这条许愿内容吗？删除后不可恢复。',
       success (res) {
         if (res.confirm) {
           _this.toDeleteBlessing(index)

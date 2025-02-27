@@ -33,7 +33,7 @@
   </view>
   <view class="link" bindtap="toMyBlessing">
     <view class="tit">
-      查看我的祈福
+      查看我的许愿
     </view>
     <image class="bless-img" src="/image/bless.png" mode="widthFix"/>
   </view>
@@ -43,7 +43,7 @@
       <text class="iconfont icon-share"></text>
       <button class="hide-btn" open-type="share">分享</button>
     </view>
-    <view class="con">好友点击您的分享链接即邀请成功，您获得10功德，好友获得20好运</view>
+    <view class="con">好友点击您的分享链接即邀请成功，您获得10善心，好友获得20好运</view>
   </view>
   <view class="link" bindtap="toFollow">
     <view class="tit">

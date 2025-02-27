@@ -32,7 +32,7 @@ export const unlikeComment = params => myRequest('/api/blessing/comment/unlike',
 //回复祈福评论
 export const replyComment = params => myRequest('/api/blessing/comment/reply', 'POST', params)
 //获取功德榜列表
-export const getRanking = params => myRequest('/api/meritlist/getRanking', 'POST', params)
+export const getRanking = params => myRequest('/api/meritlist/getRanking', 'POST', {isShowLoading: false,...params})
 //点赞功德榜
 export const likeMeritlist = params => myRequest('/api/meritlist/like', 'POST', params)
 //取消点赞功德榜

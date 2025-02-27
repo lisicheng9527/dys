@@ -1,7 +1,7 @@
 <!--祈福详情-->
 <view class="blessing">
   <view class="tab top-bg">
-    <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">祈福内容</view>
+    <view class="{{tabIndex == 0 ? 'active': ''}}" bindtap="toggleTab" data-id="0">许愿内容</view>
     <view class="{{tabIndex == 1 ? 'active': ''}}"  bindtap="toggleTab" data-id="1"><text class="iconfont icon-comment" ></text>评论（{{detail.commentCount}}）</view>
   </view>
   <view class="user" id="index0">
@@ -79,7 +79,7 @@
     <view class="icon-btn wish" bindtap="toWish">
       <text class="iconfont {{detail.wishStatus == 1 ? 'icon-love':'icon-love-plain'}}"></text>
       {{detail.wishCount}}
-      <view class="tip-tag" wx:if="{{detail.wishCountAdd}}">功德+1</view>
+      <view class="tip-tag" wx:if="{{detail.wishCountAdd}}">善心+1</view>
     </view>
     <view class="icon-btn share">
       <text class="iconfont icon-share"></text>

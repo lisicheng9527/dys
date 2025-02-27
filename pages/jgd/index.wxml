@@ -6,10 +6,10 @@
   <view class="section" wx:if="{{tabIndex == 0}}">
       <view class="section-item section-item-fl">
         <view><text class="iconfont icon-lotus"></text>{{meritCount}}</view>
-        我的功德
+        我的善心
       </view>
       <view class="section-item section-item-fr">
-        <text>“送祝福，赠好运，积功德”</text>
+        <text>“送祝福，赠好运，积善心”</text>
         <text>“赠人玫瑰，手留余香”</text>
       </view>
   </view>
@@ -49,7 +49,7 @@
         <view class="numbers">
           <view class="wish" data-id="{{item.blessingId}}" data-index="{{index}}" bindtap="toWish">
             <text class="iconfont {{item.wishStatus === 1 ? 'icon-love':'icon-love-plain'}}"></text>{{item.wishCount}}
-            <view class="tip-tag" wx:if="{{item.wishCountAdd}}">功德+1</view>
+            <view class="tip-tag" wx:if="{{item.wishCountAdd}}">善心+1</view>
           </view>
           <view bindtap="toComment" data-id="{{item.blessingId}}">
             <text class="iconfont icon-comment"></text>{{item.commentCount}}
@@ -72,11 +72,11 @@
     </view>
     <view class="create-btn" bindtap="toCreate">
       <image src="/image/bless.png" mode="aspectFit"/>
-      <view>去祈福</view>
+      <view>去许愿</view>
     </view>
   </block>
   
-  <!-- 功德榜 -->
+  <!-- 善心榜 -->
   <block wx:if="{{tabIndex == 1}}">
     <view class="ranking {{index > 2 ? 'ranking1':'ranking0'}}" wx:for="{{rankings}}" wx:key="index">
       <image wx:if="{{index === 0}}" class="ranking-bg" src="/image/goldBg.png" mode="widthFix"/>

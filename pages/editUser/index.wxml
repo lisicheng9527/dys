@@ -100,12 +100,12 @@
       </view>
     </view>
     <view class="info-item info-item1">
-      <text class="fll"> TA的功德：</text>
+      <text class="fll"> TA的善心：</text>
       <view class="frr numRange">
         <input type="number" value="{{friendShip.meritRange.begin}}" placeholder="0" data-key="meritRange.begin" bindinput="updateValue1"/>
         <text class="zhi">至</text>
         <input type="number" value="{{friendShip.meritRange.end}}" placeholder="无上限" data-key="meritRange.end" bindinput="updateValue1"/>
-        <text class="item-tip">（功德多，更有爱心更善良哦~）</text>
+        <text class="item-tip">（善心多，更有爱心更善良哦~）</text>
       </view>
     </view>
     <view class="tip">以上信息将用于每日运势及交好友频道</view>
